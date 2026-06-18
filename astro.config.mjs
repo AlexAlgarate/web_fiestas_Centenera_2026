@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 
 import cloudflare from '@astrojs/cloudflare';
 
@@ -7,8 +7,6 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   adapter: cloudflare(),
   image: {
-    service: {
-      entrypoint: 'astro/assets/services/sharp', // ← fuerza build-time
-    },
+    service: passthroughImageService(),
   },
 });
