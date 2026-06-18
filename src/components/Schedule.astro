@@ -146,7 +146,7 @@ const { days } = scheduleData as { days: Day[] };
     --radius-card: 20px;
     --radius-event: 12px;
     --ease: 0.3s ease;
-    --peek: 44px;
+    --peek: 72px;
     --card-gap: 14px;
 
     width: 100%;
@@ -161,6 +161,7 @@ const { days } = scheduleData as { days: Day[] };
   .schedule-container {
     max-width: 900px;
     margin: 0 auto;
+    padding: 0 16px;
   }
 
   .schedule-header {
@@ -180,6 +181,7 @@ const { days } = scheduleData as { days: Day[] };
     display: flex;
     align-items: center;
     gap: 10px;
+    padding: 0;
   }
 
   .carousel-viewport {
@@ -216,7 +218,7 @@ const { days } = scheduleData as { days: Day[] };
   }
 
   .day-schedule {
-    flex: 0 0 calc(100% - 2 * var(--peek));
+    flex: 0 0 calc(100% - 2 * var(--peek) - 20px);
     min-width: 0;
     background: var(--clr-white);
     border-radius: var(--radius-card);
@@ -225,9 +227,9 @@ const { days } = scheduleData as { days: Day[] };
     padding: 40px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-    transform: scale(0.92);
-    opacity: 0.5;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(0.95);
+    opacity: 0.6;
     transition:
       transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
       opacity 0.4s ease,
@@ -237,7 +239,9 @@ const { days } = scheduleData as { days: Day[] };
   .day-schedule.active {
     transform: scale(1);
     opacity: 1;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.08),
+      0 8px 32px rgba(0, 0, 0, 0.14);
   }
 
   .day-header {
@@ -418,9 +422,9 @@ const { days } = scheduleData as { days: Day[] };
 
   @media (max-width: 640px) {
     #schedule {
-      --peek: 36px;
+      --peek: 56px;
       --card-gap: 10px;
-      padding: 24px 16px;
+      padding: 32px 0;
     }
 
     .nav-button {
@@ -437,7 +441,7 @@ const { days } = scheduleData as { days: Day[] };
 
   @media (max-width: 480px) {
     #schedule {
-      --peek: 28px;
+      --peek: 44px;
       --card-gap: 8px;
       padding: 20px 12px;
     }
@@ -503,9 +507,8 @@ const { days } = scheduleData as { days: Day[] };
     function baseX(index: number): number {
       const peek = cssVar('--peek', 44);
       const gap = cssVar('--card-gap', 14);
-      const cw = cardWidth();
-      // Centra el card activo en el área visible (viewport - 2×peek)
-      const step = cw + gap;
+      const step = cardWidth() + gap;
+
       return peek - index * step;
     }
 
