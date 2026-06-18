@@ -1,0 +1,16 @@
+{
+  "sponsors": [
+    {
+      "id": 1,
+      "name": "Patrocinador 1",
+      "image": "sponsor1.jpg",
+      "link": "#"
+    },
+    {
+      "id": 2,
+      "name": "Patrocinador 2",
+      "image": "sponsor2.jpg",
+      "link": "#"
+    }
+  ]
+}

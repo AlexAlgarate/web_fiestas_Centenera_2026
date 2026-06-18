@@ -1,0 +1,105 @@
+{
+  "days": [
+    {
+      "id": 1,
+      "date": "2026-08-05",
+      "dayName": "miércoles",
+      "day": "05",
+      "month": "agosto",
+      "events": [
+        {
+          "time": "18:00",
+          "title": "Apertura de fiestas",
+          "location": "Plaza Mayor"
+        },
+        {
+          "time": "20:00",
+          "title": "Concierto de música",
+          "location": "Auditorio"
+        },
+        {
+          "time": "23:00",
+          "title": "Verbena popular",
+          "location": "Calle Principal"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "date": "2026-08-06",
+      "dayName": "jueves",
+      "day": "06",
+      "month": "agosto",
+      "events": [
+        {
+          "time": "10:00",
+          "title": "Mercado artesanal",
+          "location": "Plaza del Centro"
+        },
+        {
+          "time": "17:00",
+          "title": "Actividades infantiles",
+          "location": "Parque Municipal"
+        },
+        {
+          "time": "21:00",
+          "title": "Cena de hermandad",
+          "location": "Recinto Ferial"
+        },
+        {
+          "time": "21:00",
+          "title": "Cena de hermandad",
+          "location": "Recinto Ferial"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "date": "2026-08-07",
+      "dayName": "viernes",
+      "day": "07",
+      "month": "agosto",
+      "events": [
+        {
+          "time": "12:00",
+          "title": "Competiciones deportivas",
+          "location": "Estadio"
+        },
+        {
+          "time": "19:00",
+          "title": "Desfile de carrozas",
+          "location": "Calle Mayor"
+        },
+        {
+          "time": "23:30",
+          "title": "Fuegos artificiales",
+          "location": "Parque Central"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "date": "2026-08-08",
+      "dayName": "sábado",
+      "day": "08",
+      "month": "agosto",
+      "events": [
+        {
+          "time": "09:00",
+          "title": "Romería",
+          "location": "Santuario"
+        },
+        {
+          "time": "16:00",
+          "title": "Corridas de toros",
+          "location": "Plaza de toros"
+        },
+        {
+          "time": "22:00",
+          "title": "Fiesta mayor",
+          "location": "Recinto Ferial"
+        }
+      ]
+    }
+  ]
+}
