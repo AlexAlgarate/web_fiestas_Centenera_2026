@@ -2,10 +2,11 @@
   "sponsors": [
     {
       "id": 1,
-      "name": "Ramos Bus",
-      "image": "ramos-bus.jpg",
-      "link": "https://www.ramosbus.com/"
+      "name": "Desguaces Blanco",
+      "image": "desguaces-blanco.jpg",
+      "link": "https://www.desguacesblanco.es/"
     },
+
     {
       "id": 2,
       "name": "Iberauto Motor",
@@ -80,9 +81,9 @@
     },
     {
       "id": 14,
-      "name": "Desguaces Blanco",
-      "image": "desguaces-blanco.jpg",
-      "link": "https://www.desguacesblanco.es/"
+      "name": "Ramos Bus",
+      "image": "ramos-bus.jpg",
+      "link": "https://www.ramosbus.com/"
     },
     {
       "id": 15,
