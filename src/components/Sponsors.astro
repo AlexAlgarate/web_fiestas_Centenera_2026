@@ -1,23 +1,9 @@
 ---
 import sponsorsData from '../data/sponsors.json';
-import sponsor1 from '../assets/sponsors/sponsor1.jpg';
-import sponsor2 from '../assets/sponsors/sponsor2.jpg';
 
 const { sponsors } = sponsorsData;
 
-// Create a mapping of image names to imported images
-const imageMap: { [key: string]: any } = {
-	'sponsor1.jpg': sponsor1,
-	'sponsor2.jpg': sponsor2,
-};
-
-// Duplicate sponsors to fill the grid
-const sponsorList = [
-	...sponsors,
-	...sponsors,
-	...sponsors,
-	...sponsors,
-];
+const images = import.meta.glob<{ default: { src: string } }>('../assets/sponsors/*.{jpg,png,PNG}', { eager: true });
 ---
 
 <section id="sponsors">
@@ -27,16 +13,20 @@ const sponsorList = [
 		</div>
 
 		<div class="sponsors-grid">
-			{sponsorList.map((sponsor) => (
-				<a href={sponsor.link} class="sponsor-card" title={sponsor.name}>
-					<img
-						src={imageMap[sponsor.image].src}
-						alt={sponsor.name}
-						loading="lazy"
-						decoding="async"
-					/>
-				</a>
-			))}
+			{sponsors.map((sponsor) => {
+				const imagePath = `../assets/sponsors/${sponsor.image}`;
+				const image = images[imagePath];
+				return (
+					<a href={sponsor.link} class="sponsor-card" title={sponsor.name}>
+						<img
+							src={image?.default.src}
+							alt={sponsor.name}
+							loading="lazy"
+							decoding="async"
+						/>
+					</a>
+				);
+			})}
 		</div>
 	</div>
 </section>
