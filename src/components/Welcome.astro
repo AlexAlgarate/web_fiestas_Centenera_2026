@@ -20,6 +20,14 @@ import Sponsors from './Sponsors.astro';
 <Sponsors />
 
 <style>
+	@font-face {
+		font-family: 'Bridge';
+		src: url('/fonts/Bridge-Regular.e7ea9f05ba63bbd48f7563f34.ebe8e926d1194c0e642324237a53b446.woff2') format('woff2');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+
 	#background {
 		position: fixed;
 		top: 0;
@@ -44,13 +52,15 @@ import Sponsors from './Sponsors.astro';
 		padding: 32px 16px 24px;
 		text-align: center;
 		min-height: auto;
+		color: #962000
 	}
 
 	h1 {
+		font-family: 'Bridge', serif;
 		font-size: 96px;
 		margin: 0;
 		font-weight: 900;
-		letter-spacing: -0.02em;
+		letter-spacing: 0.08em;
 		line-height: 1;
 	}
 
@@ -65,6 +75,7 @@ import Sponsors from './Sponsors.astro';
 	@media screen and (max-width: 768px) {
 		h1 {
 			font-size: 64px;
+			letter-spacing: 0.08em;
 		}
 
 		h2 {
@@ -75,6 +86,7 @@ import Sponsors from './Sponsors.astro';
 	@media screen and (max-width: 480px) {
 		h1 {
 			font-size: 48px;
+			letter-spacing: 0.08em;
 		}
 
 		h2 {
