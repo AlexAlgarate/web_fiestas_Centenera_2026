@@ -495,13 +495,18 @@ const { days } = scheduleData as { days: Day[] };
     }
 
     function cardWidth(): number {
-      return viewport.clientWidth - 2 * cssVar('--peek', 44);
+      return (
+        cards[0]?.offsetWidth ?? viewport.clientWidth - 2 * cssVar('--peek', 44)
+      );
     }
 
     function baseX(index: number): number {
       const peek = cssVar('--peek', 44);
       const gap = cssVar('--card-gap', 14);
-      return -(index * (cardWidth() + gap)) + peek;
+      const cw = cardWidth();
+      // Centra el card activo en el área visible (viewport - 2×peek)
+      const step = cw + gap;
+      return peek - index * step;
     }
 
     function move(x: number, animate = true): void {
