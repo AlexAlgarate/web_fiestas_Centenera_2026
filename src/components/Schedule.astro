@@ -5,425 +5,479 @@ const { days } = scheduleData;
 ---
 
 <section id="schedule">
-	<div class="schedule-container">
-		<div class="schedule-header">
-			<h2>Horarios de las Fiestas</h2>
-		</div>
+  <div class="schedule-container">
+    <div class="schedule-header">
+      <h2>Horarios de las Fiestas</h2>
+    </div>
 
-		<div class="schedule-content">
-			<button id="prevBtn" class="nav-button prev-button" aria-label="Día anterior">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-					<path d="M15 18l-6-6 6-6"></path>
-				</svg>
-			</button>
+    <div class="schedule-content">
+      <button
+        id="prevBtn"
+        class="nav-button prev-button"
+        aria-label="Día anterior"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+      </button>
 
-			<div class="schedule-card">
-				{days.map((day, index) => (
-					<div class="day-schedule" data-day-id={day.id} style={index === 0 ? 'display: block;' : 'display: none;'}>
-						<div class="day-header">
-							<h3 class="day-title">
-								{day.dayName} <span class="day-date">{day.day} de {day.month}</span>
-							</h3>
-						</div>
+      <div class="schedule-card">
+        {
+          days.map((day, index) => (
+            <div
+              class="day-schedule"
+              data-day-id={day.id}
+              style={index === 0 ? 'display: block;' : 'display: none;'}
+            >
+              <div class="day-header">
+                <h3 class="day-title">
+                  {day.dayName}{' '}
+                  <span class="day-date">
+                    {day.day} de {day.month}
+                  </span>
+                </h3>
+              </div>
 
-						<div class="events-list">
-							{day.events.map((event) => (
-								<div class="event">
-									<div class="event-time">{event.time}</div>
-									<div class="event-details">
-										<div class="event-title">{event.title}</div>
-										<div class="event-location">{event.location}</div>
-									</div>
-								</div>
-							))}
-						</div>
-					</div>
-				))}
-			</div>
+              <div class="events-list">
+                {day.events.map((event) => (
+                  <div class="event">
+                    <div class="event-time">{event.time}</div>
+                    <div class="event-details">
+                      <div class="event-title">{event.title}</div>
+                      <div class="event-location">{event.location}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
 
-			<button id="nextBtn" class="nav-button next-button" aria-label="Próximo día">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-					<path d="M9 18l6-6-6-6"></path>
-				</svg>
-			</button>
-		</div>
+      <button
+        id="nextBtn"
+        class="nav-button next-button"
+        aria-label="Próximo día"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M9 18l6-6-6-6"></path>
+        </svg>
+      </button>
+    </div>
 
-		<div class="schedule-indicators">
-			{days.map((day) => (
-				<button class="indicator" data-day-id={day.id} aria-label={`${day.dayName} ${day.day}`}></button>
-			))}
-		</div>
+    <div class="schedule-indicators">
+      {
+        days.map((day) => (
+          <button
+            class="indicator"
+            data-day-id={day.id}
+            aria-label={`${day.dayName} ${day.day}`}
+          />
+        ))
+      }
+    </div>
 
-		<div class="social-section">
-			<a href="https://www.instagram.com/p/DTyETOODLZ2/?igsh=bnRlODE4ZjRqNHZ6" target="_blank" rel="noopener noreferrer" class="instagram-button">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-					<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162 0 3.403 2.759 6.162 6.162 6.162 3.403 0 6.162-2.759 6.162-6.162 0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm4.846-14.121c-.794 0-1.438.645-1.438 1.438s.644 1.438 1.438 1.438c.793 0 1.438-.645 1.438-1.438s-.645-1.438-1.438-1.438z" />
-				</svg>
-				Síguenos en Instagram
-			</a>
-		</div>
-	</div>
+    <div class="social-section">
+      <a
+        href="https://www.instagram.com/p/DTyETOODLZ2/?igsh=bnRlODE4ZjRqNHZ6"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="instagram-button"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          width="24"
+          height="24"
+        >
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162 0 3.403 2.759 6.162 6.162 6.162 3.403 0 6.162-2.759 6.162-6.162 0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm4.846-14.121c-.794 0-1.438.645-1.438 1.438s.644 1.438 1.438 1.438c.793 0 1.438-.645 1.438-1.438s-.645-1.438-1.438-1.438z"
+          ></path>
+        </svg>
+        Síguenos en Instagram
+      </a>
+    </div>
+  </div>
 </section>
 
 <style>
-	#schedule {
-		width: 100%;
-		padding: 32px 16px;
-		background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 245, 0.95) 100%);
-	}
+  #schedule {
+    width: 100%;
+    padding: 32px 16px;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(240, 240, 245, 0.95) 100%
+    );
+  }
 
-	.schedule-container {
-		max-width: 900px;
-		margin: 0 auto;
-	}
+  .schedule-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
-	.schedule-header {
-		text-align: center;
-		margin-bottom: 24px;
-	}
+  .schedule-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
 
-	.schedule-header h2 {
-		font-size: 36px;
-		font-weight: 700;
-		color: #111827;
-		margin: 0;
-		letter-spacing: -0.02em;
-	}
+  .schedule-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
 
-	.schedule-content {
-		display: flex;
-		align-items: center;
-		gap: 20px;
-		position: relative;
-	}
+  .schedule-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+  }
 
-	.schedule-card {
-		flex: 1;
-		background: white;
-		border-radius: 20px;
-		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-		overflow: hidden;
-		min-height: 400px;
-		position: relative;
-	}
+  .schedule-card {
+    flex: 1;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    min-height: 400px;
+    position: relative;
+  }
 
-	.day-schedule {
-		padding: 40px;
-		min-height: 400px;
-		display: flex;
-		flex-direction: column;
-		animation: fadeIn 0.3s ease-in-out;
-	}
+  .day-schedule {
+    padding: 40px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.3s ease-in-out;
+  }
 
-	@keyframes fadeIn {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
-	.day-header {
-		text-align: center;
-		margin-bottom: 30px;
-		border-bottom: 2px solid #e5e7eb;
-		padding-bottom: 20px;
-	}
+  .day-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 20px;
+  }
 
-	.day-title {
-		font-size: 28px;
-		font-weight: 700;
-		color: #111827;
-		margin: 0;
-		text-transform: capitalize;
-	}
+  .day-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    text-transform: capitalize;
+  }
 
-	.day-date {
-		display: block;
-		font-size: 18px;
-		color: #6b7280;
-		font-weight: 500;
-		margin-top: 8px;
-	}
+  .day-date {
+    display: block;
+    font-size: 18px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-top: 8px;
+  }
 
-	.events-list {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		gap: 20px;
-	}
+  .events-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
-	.event {
-		display: flex;
-		gap: 16px;
-		padding: 16px;
-		background: #f9fafb;
-		border-radius: 12px;
-		transition: all 0.2s ease;
-	}
+  .event {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
 
-	.event:hover {
-		background: #f3f4f6;
-		transform: translateX(4px);
-	}
+  .event:hover {
+    background: #f3f4f6;
+    transform: translateX(4px);
+  }
 
-	.event-time {
-		font-size: 18px;
-		font-weight: 700;
-		color: #3245ff;
-		min-width: 60px;
-	}
+  .event-time {
+    font-size: 18px;
+    font-weight: 700;
+    color: #3245ff;
+    min-width: 60px;
+  }
 
-	.event-details {
-		flex: 1;
-	}
+  .event-details {
+    flex: 1;
+  }
 
-	.event-title {
-		font-size: 16px;
-		font-weight: 600;
-		color: #111827;
-		margin-bottom: 4px;
-	}
+  .event-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 4px;
+  }
 
-	.event-location {
-		font-size: 14px;
-		color: #6b7280;
-	}
+  .event-location {
+    font-size: 14px;
+    color: #6b7280;
+  }
 
-	.nav-button {
-		width: 50px;
-		height: 50px;
-		border-radius: 50%;
-		border: 2px solid #e5e7eb;
-		background: white;
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		transition: all 0.2s ease;
-		color: #111827;
-		flex-shrink: 0;
-	}
+  .nav-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #e5e7eb;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    color: #111827;
+    flex-shrink: 0;
+  }
 
-	.nav-button:hover {
-		border-color: #3245ff;
-		color: #3245ff;
-		box-shadow: 0 4px 12px rgba(50, 69, 255, 0.2);
-	}
+  .nav-button:hover {
+    border-color: #3245ff;
+    color: #3245ff;
+    box-shadow: 0 4px 12px rgba(50, 69, 255, 0.2);
+  }
 
-	.nav-button svg {
-		width: 24px;
-		height: 24px;
-	}
+  .nav-button svg {
+    width: 24px;
+    height: 24px;
+  }
 
-	.schedule-indicators {
-		display: flex;
-		justify-content: center;
-		gap: 10px;
-		margin-top: 30px;
-	}
+  .schedule-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+  }
 
-	.indicator {
-		width: 12px;
-		height: 12px;
-		border-radius: 50%;
-		border: none;
-		background: #d1d5db;
-		cursor: pointer;
-		transition: all 0.2s ease;
-	}
+  .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: #d1d5db;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
 
-	.indicator.active {
-		background: #3245ff;
-		width: 30px;
-		border-radius: 6px;
-	}
+  .indicator.active {
+    background: #3245ff;
+    width: 30px;
+    border-radius: 6px;
+  }
 
-	.social-section {
-		display: flex;
-		justify-content: center;
-		margin-top: 32px;
-	}
+  .social-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
 
-	.instagram-button {
-		display: inline-flex;
-		align-items: center;
-		gap: 12px;
-		padding: 14px 28px;
-		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-		color: white;
-		text-decoration: none;
-		border-radius: 50px;
-		font-weight: 600;
-		font-size: 16px;
-		transition: all 0.3s ease;
-		box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-	}
+  .instagram-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  }
 
-	.instagram-button:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-	}
+  .instagram-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  }
 
-	.instagram-button svg {
-		width: 24px;
-		height: 24px;
-	}
+  .instagram-button svg {
+    width: 24px;
+    height: 24px;
+  }
 
-	@media screen and (max-width: 768px) {
-		#schedule {
-			padding: 24px 16px;
-		}
+  @media screen and (max-width: 768px) {
+    #schedule {
+      padding: 24px 16px;
+    }
 
-		.schedule-header h2 {
-			font-size: 28px;
-		}
+    .schedule-header h2 {
+      font-size: 28px;
+    }
 
-		.schedule-card {
-			min-height: 350px;
-		}
+    .schedule-card {
+      min-height: 350px;
+    }
 
-		.day-schedule {
-			padding: 24px;
-			min-height: 350px;
-		}
+    .day-schedule {
+      padding: 24px;
+      min-height: 350px;
+    }
 
-		.day-title {
-			font-size: 22px;
-		}
+    .day-title {
+      font-size: 22px;
+    }
 
-		.day-date {
-			font-size: 16px;
-		}
+    .day-date {
+      font-size: 16px;
+    }
 
-		.nav-button {
-			width: 44px;
-			height: 44px;
-		}
+    .nav-button {
+      width: 44px;
+      height: 44px;
+    }
 
-		.event {
-			gap: 12px;
-			padding: 12px;
-		}
+    .event {
+      gap: 12px;
+      padding: 12px;
+    }
 
-		.event-title {
-			font-size: 15px;
-		}
+    .event-title {
+      font-size: 15px;
+    }
 
-		.event-location {
-			font-size: 13px;
-		}
-	}
+    .event-location {
+      font-size: 13px;
+    }
+  }
 
-	@media screen and (max-width: 480px) {
-		.schedule-content {
-			gap: 12px;
-		}
+  @media screen and (max-width: 480px) {
+    .schedule-content {
+      gap: 12px;
+    }
 
-		.nav-button {
-			width: 40px;
-			height: 40px;
-		}
+    .nav-button {
+      width: 40px;
+      height: 40px;
+    }
 
-		.nav-button svg {
-			width: 20px;
-			height: 20px;
-		}
+    .nav-button svg {
+      width: 20px;
+      height: 20px;
+    }
 
-		.day-schedule {
-			padding: 16px;
-			min-height: 320px;
-		}
+    .day-schedule {
+      padding: 16px;
+      min-height: 320px;
+    }
 
-		.day-title {
-			font-size: 18px;
-		}
+    .day-title {
+      font-size: 18px;
+    }
 
-		.day-date {
-			font-size: 14px;
-		}
+    .day-date {
+      font-size: 14px;
+    }
 
-		.event-time {
-			font-size: 16px;
-			min-width: 50px;
-		}
+    .event-time {
+      font-size: 16px;
+      min-width: 50px;
+    }
 
-		.event-title {
-			font-size: 14px;
-		}
+    .event-title {
+      font-size: 14px;
+    }
 
-		.event-location {
-			font-size: 12px;
-		}
+    .event-location {
+      font-size: 12px;
+    }
 
-		.instagram-button {
-			padding: 12px 24px;
-			font-size: 14px;
-		}
+    .instagram-button {
+      padding: 12px 24px;
+      font-size: 14px;
+    }
 
-		.instagram-button svg {
-			width: 20px;
-			height: 20px;
-		}
+    .instagram-button svg {
+      width: 20px;
+      height: 20px;
+    }
 
-		.social-section {
-			margin-top: 24px;
-		}
-	}
+    .social-section {
+      margin-top: 24px;
+    }
+  }
 </style>
 
 <script>
-	const days = document.querySelectorAll('.day-schedule') as NodeListOf<HTMLElement>;
-	const indicators = document.querySelectorAll('.indicator');
-	const prevBtn = document.getElementById('prevBtn');
-	const nextBtn = document.getElementById('nextBtn');
-	let currentIndex = 0;
+  const days = document.querySelectorAll(
+    '.day-schedule',
+  ) as NodeListOf<HTMLElement>;
+  const indicators = document.querySelectorAll('.indicator');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let currentIndex = 0;
 
-	function showDay(index: number) {
-		// Hide all days
-		days.forEach((day) => {
-			day.style.display = 'none';
-		});
+  function showDay(index: number) {
+    // Hide all days
+    days.forEach((day) => {
+      day.style.display = 'none';
+    });
 
-		// Remove active class from all indicators
-		indicators.forEach((indicator) => {
-			indicator.classList.remove('active');
-		});
+    // Remove active class from all indicators
+    indicators.forEach((indicator) => {
+      indicator.classList.remove('active');
+    });
 
-		// Show the selected day
-		days[index].style.display = 'block';
-		indicators[index].classList.add('active');
-		currentIndex = index;
-	}
+    // Show the selected day
+    days[index].style.display = 'block';
+    indicators[index].classList.add('active');
+    currentIndex = index;
+  }
 
-	// Initialize first day as active
-	indicators[0].classList.add('active');
+  // Initialize first day as active
+  indicators[0].classList.add('active');
 
-	// Navigation buttons
-	prevBtn?.addEventListener('click', () => {
-		const newIndex = currentIndex === 0 ? days.length - 1 : currentIndex - 1;
-		showDay(newIndex);
-	});
+  // Navigation buttons
+  prevBtn?.addEventListener('click', () => {
+    const newIndex = currentIndex === 0 ? days.length - 1 : currentIndex - 1;
+    showDay(newIndex);
+  });
 
-	nextBtn?.addEventListener('click', () => {
-		const newIndex = currentIndex === days.length - 1 ? 0 : currentIndex + 1;
-		showDay(newIndex);
-	});
+  nextBtn?.addEventListener('click', () => {
+    const newIndex = currentIndex === days.length - 1 ? 0 : currentIndex + 1;
+    showDay(newIndex);
+  });
 
-	// Indicator buttons
-	indicators.forEach((indicator, index) => {
-		indicator.addEventListener('click', () => {
-			showDay(index);
-		});
-	});
+  // Indicator buttons
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      showDay(index);
+    });
+  });
 
-	// Keyboard navigation
-	document.addEventListener('keydown', (e) => {
-		if (e.key === 'ArrowLeft') {
-			prevBtn?.click();
-		} else if (e.key === 'ArrowRight') {
-			nextBtn?.click();
-		}
-	});
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      prevBtn?.click();
+    } else if (e.key === 'ArrowRight') {
+      nextBtn?.click();
+    }
+  });
 </script>

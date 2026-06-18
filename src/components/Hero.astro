@@ -1,0 +1,98 @@
+---
+import background from '../assets/background.svg';
+import Schedule from './Schedule.astro';
+import Sponsors from './Sponsors.astro';
+---
+
+<div id="container">
+  <img id="background" src={background.src} alt="" fetchpriority="high" />
+  <main>
+    <section id="hero">
+      <h1>Centenera</h1>
+      <h2>Fiestas 2026</h2>
+    </section>
+  </main>
+</div>
+
+<Schedule />
+
+<Sponsors />
+
+<style>
+  @font-face {
+    font-family: 'Bridge';
+    src: url('/fonts/Bridge-Regular.e7ea9f05ba63bbd48f7563f34.ebe8e926d1194c0e642324237a53b446.woff2')
+      format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  #background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(100px);
+  }
+
+  #container {
+    font-family:
+      Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial,
+      sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #hero {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px 16px 24px;
+    text-align: center;
+    min-height: auto;
+    color: #962000;
+  }
+
+  h1 {
+    font-family: 'Bridge', serif;
+    font-size: 96px;
+    margin: 0;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+
+  h2 {
+    margin: 16px 0 0 0;
+    font-weight: 600;
+    color: #111827;
+    font-size: 32px;
+    letter-spacing: -0.01em;
+  }
+
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 64px;
+      letter-spacing: 0.08em;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    h1 {
+      font-size: 48px;
+      letter-spacing: 0.08em;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+  }
+</style>
