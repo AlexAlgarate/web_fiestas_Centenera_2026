@@ -1,20 +1,35 @@
 ---
 import scheduleData from '../data/schedule.json';
 
-const { days } = scheduleData;
+interface ScheduleEvent {
+  time: string;
+  title: string;
+  location: string;
+}
+
+interface Day {
+  id: number;
+  dayName: string;
+  day: string;
+  month: string;
+  events: ScheduleEvent[];
+}
+
+const { days } = scheduleData as { days: Day[] };
 ---
 
-<section id="schedule">
+<section id="schedule" aria-label="Horarios de las fiestas">
   <div class="schedule-container">
-    <div class="schedule-header">
+    <header class="schedule-header">
       <h2>Horarios de las Fiestas</h2>
-    </div>
+    </header>
 
     <div class="schedule-content">
       <button
         id="prevBtn"
-        class="nav-button prev-button"
+        class="nav-button"
         aria-label="Día anterior"
+        type="button"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -22,48 +37,53 @@ const { days } = scheduleData;
           fill="none"
           stroke="currentColor"
           stroke-width="2"
+          aria-hidden="true"
         >
           <path d="M15 18l-6-6 6-6"></path>
         </svg>
       </button>
 
-      <div class="schedule-card">
-        {
-          days.map((day, index) => (
-            <div
-              class="day-schedule"
-              data-day-id={day.id}
-              style={index === 0 ? 'display: block;' : 'display: none;'}
-            >
-              <div class="day-header">
-                <h3 class="day-title">
-                  {day.dayName}{' '}
-                  <span class="day-date">
-                    {day.day} de {day.month}
-                  </span>
-                </h3>
-              </div>
+      <div class="carousel-viewport" id="carouselViewport">
+        <div class="carousel-track" id="carouselTrack">
+          {
+            days.map((day, index) => (
+              <article
+                class:list={['day-schedule', { active: index === 0 }]}
+                aria-label={`${day.dayName}, ${day.day} de ${day.month}`}
+              >
+                <header class="day-header">
+                  <h3 class="day-title">
+                    {day.dayName}
+                    <span class="day-date">
+                      {day.day} de {day.month}
+                    </span>
+                  </h3>
+                </header>
 
-              <div class="events-list">
-                {day.events.map((event) => (
-                  <div class="event">
-                    <div class="event-time">{event.time}</div>
-                    <div class="event-details">
-                      <div class="event-title">{event.title}</div>
-                      <div class="event-location">{event.location}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))
-        }
+                <ul class="events-list">
+                  {day.events.map((event) => (
+                    <li class="event">
+                      <time class="event-time">{event.time}</time>
+                      <div class="event-details">
+                        <strong class="event-title">{event.title}</strong>
+                        {event.location && (
+                          <span class="event-location">{event.location}</span>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
       </div>
 
       <button
         id="nextBtn"
-        class="nav-button next-button"
-        aria-label="Próximo día"
+        class="nav-button"
+        aria-label="Día siguiente"
+        type="button"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -71,19 +91,22 @@ const { days } = scheduleData;
           fill="none"
           stroke="currentColor"
           stroke-width="2"
+          aria-hidden="true"
         >
           <path d="M9 18l6-6-6-6"></path>
         </svg>
       </button>
     </div>
 
-    <div class="schedule-indicators">
+    <div class="schedule-indicators" role="group" aria-label="Seleccionar día">
       {
-        days.map((day) => (
+        days.map((day, index) => (
           <button
-            class="indicator"
-            data-day-id={day.id}
-            aria-label={`${day.dayName} ${day.day}`}
+            class:list={['indicator', { active: index === 0 }]}
+            data-index={index}
+            type="button"
+            aria-label={`${day.dayName} ${day.day} de ${day.month}`}
+            aria-pressed={index === 0 ? 'true' : 'false'}
           />
         ))
       }
@@ -100,8 +123,7 @@ const { days } = scheduleData;
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          width="24"
-          height="24"
+          aria-hidden="true"
         >
           <path
             d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162 0 3.403 2.759 6.162 6.162 6.162 3.403 0 6.162-2.759 6.162-6.162 0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm4.846-14.121c-.794 0-1.438.645-1.438 1.438s.644 1.438 1.438 1.438c.793 0 1.438-.645 1.438-1.438s-.645-1.438-1.438-1.438z"
@@ -115,6 +137,18 @@ const { days } = scheduleData;
 
 <style>
   #schedule {
+    --clr-primary: #3245ff;
+    --clr-text: #111827;
+    --clr-muted: #6b7280;
+    --clr-border: #e5e7eb;
+    --clr-surface: #f9fafb;
+    --clr-white: #ffffff;
+    --radius-card: 20px;
+    --radius-event: 12px;
+    --ease: 0.3s ease;
+    --peek: 44px;
+    --card-gap: 14px;
+
     width: 100%;
     padding: 32px 16px;
     background: linear-gradient(
@@ -135,9 +169,9 @@ const { days } = scheduleData;
   }
 
   .schedule-header h2 {
-    font-size: 36px;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
     font-weight: 700;
-    color: #111827;
+    color: var(--clr-text);
     margin: 0;
     letter-spacing: -0.02em;
   }
@@ -145,423 +179,436 @@ const { days } = scheduleData;
   .schedule-content {
     display: flex;
     align-items: center;
-    gap: 20px;
-    position: relative;
+    gap: 10px;
   }
 
-  .schedule-card {
+  .carousel-viewport {
     flex: 1;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    min-height: 400px;
     position: relative;
+    touch-action: pan-y;
     cursor: grab;
-    touch-action: none;
-    transition:
-      transform 0.3s ease,
-      opacity 0.3s ease;
-  }
-
-  .schedule-card.dragging {
-    cursor: grabbing;
-    transition: none;
     user-select: none;
     -webkit-user-select: none;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black var(--peek),
+      black calc(100% - var(--peek)),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black var(--peek),
+      black calc(100% - var(--peek)),
+      transparent
+    );
   }
 
-  .schedule-card.drag-left {
-    opacity: 0.5;
-    transform: translateX(-60px) scale(0.95);
+  .carousel-viewport.grabbing {
+    cursor: grabbing;
   }
 
-  .schedule-card.drag-right {
-    opacity: 0.5;
-    transform: translateX(60px) scale(0.95);
+  .carousel-track {
+    display: flex;
+    gap: var(--card-gap);
   }
 
   .day-schedule {
+    flex: 0 0 calc(100% - 2 * var(--peek));
+    min-width: 0;
+    background: var(--clr-white);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    min-height: 420px;
     padding: 40px;
-    min-height: 400px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    transform: scale(0.92);
+    opacity: 0.5;
+    transition:
+      transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      opacity 0.4s ease,
+      box-shadow 0.4s ease;
+  }
+
+  .day-schedule.active {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
   }
 
   .day-header {
     text-align: center;
-    margin-bottom: 30px;
-    border-bottom: 2px solid #e5e7eb;
-    padding-bottom: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--clr-border);
   }
 
   .day-title {
-    font-size: 28px;
+    font-size: clamp(1.125rem, 3vw, 1.75rem);
     font-weight: 700;
-    color: #111827;
+    color: var(--clr-text);
     margin: 0;
     text-transform: capitalize;
   }
 
   .day-date {
     display: block;
-    font-size: 18px;
-    color: #6b7280;
+    font-size: clamp(0.875rem, 2vw, 1.0625rem);
+    color: var(--clr-muted);
     font-weight: 500;
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
   .events-list {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .event {
     display: flex;
-    gap: 16px;
-    padding: 16px;
-    background: #f9fafb;
-    border-radius: 12px;
-    transition: all 0.2s ease;
+    gap: 14px;
+    padding: 14px;
+    background: var(--clr-surface);
+    border-radius: var(--radius-event);
+    transition:
+      background var(--ease),
+      transform var(--ease);
   }
 
   .event:hover {
-    background: #f3f4f6;
+    background: #f0f1f4;
     transform: translateX(4px);
   }
 
   .event-time {
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 700;
-    color: #3245ff;
-    min-width: 60px;
+    color: var(--clr-primary);
+    min-width: 62px;
+    flex-shrink: 0;
+    padding-top: 1px;
   }
 
   .event-details {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
   }
 
   .event-title {
-    font-size: 16px;
+    font-size: 0.9375rem;
     font-weight: 600;
-    color: #111827;
-    margin-bottom: 4px;
+    color: var(--clr-text);
   }
-
   .event-location {
-    font-size: 14px;
-    color: #6b7280;
+    font-size: 0.8125rem;
+    color: var(--clr-muted);
   }
 
   .nav-button {
-    width: 50px;
-    height: 50px;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    border: 2px solid #e5e7eb;
-    background: white;
+    border: 2px solid var(--clr-border);
+    background: var(--clr-white);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
-    color: #111827;
-    flex-shrink: 0;
+    color: var(--clr-text);
+    transition:
+      border-color var(--ease),
+      color var(--ease),
+      box-shadow var(--ease);
+    z-index: 1;
   }
 
   .nav-button:hover {
-    border-color: #3245ff;
-    color: #3245ff;
+    border-color: var(--clr-primary);
+    color: var(--clr-primary);
     box-shadow: 0 4px 12px rgba(50, 69, 255, 0.2);
   }
 
+  .nav-button:focus-visible {
+    outline: 2px solid var(--clr-primary);
+    outline-offset: 3px;
+  }
   .nav-button svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
   }
 
   .schedule-indicators {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 30px;
+    gap: 8px;
+    margin-top: 20px;
   }
 
   .indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
     border: none;
-    background: #d1d5db;
+    padding: 0;
+    background: var(--clr-border);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition:
+      background var(--ease),
+      width var(--ease);
   }
 
   .indicator.active {
-    background: #3245ff;
-    width: 30px;
-    border-radius: 6px;
+    background: var(--clr-primary);
+    width: 28px;
+  }
+  .indicator:focus-visible {
+    outline: 2px solid var(--clr-primary);
+    outline-offset: 3px;
   }
 
   .social-section {
     display: flex;
     justify-content: center;
-    margin-top: 32px;
+    margin-top: 28px;
   }
 
   .instagram-button {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px 28px;
+    gap: 10px;
+    padding: 12px 24px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 16px;
-    transition: all 0.3s ease;
+    font-size: 0.9375rem;
     box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition:
+      transform var(--ease),
+      box-shadow var(--ease);
   }
 
   .instagram-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
   }
-
+  .instagram-button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
+  }
   .instagram-button svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
   }
 
-  @media screen and (max-width: 768px) {
+  @media (max-width: 640px) {
     #schedule {
+      --peek: 36px;
+      --card-gap: 10px;
       padding: 24px 16px;
     }
 
-    .schedule-header h2 {
-      font-size: 28px;
+    .nav-button {
+      display: none;
     }
-
-    .schedule-card {
-      min-height: 350px;
+    .schedule-content {
+      gap: 0;
     }
-
     .day-schedule {
       padding: 24px;
-      min-height: 350px;
-    }
-
-    .day-title {
-      font-size: 22px;
-    }
-
-    .day-date {
-      font-size: 16px;
-    }
-
-    .nav-button {
-      width: 44px;
-      height: 44px;
-    }
-
-    .event {
-      gap: 12px;
-      padding: 12px;
-    }
-
-    .event-title {
-      font-size: 15px;
-    }
-
-    .event-location {
-      font-size: 13px;
+      min-height: 360px;
     }
   }
 
-  @media screen and (max-width: 480px) {
-    .schedule-content {
-      gap: 12px;
-    }
-
-    .nav-button {
-      width: 40px;
-      height: 40px;
-    }
-
-    .nav-button svg {
-      width: 20px;
-      height: 20px;
+  @media (max-width: 480px) {
+    #schedule {
+      --peek: 28px;
+      --card-gap: 8px;
+      padding: 20px 12px;
     }
 
     .day-schedule {
-      padding: 16px;
+      padding: 18px;
       min-height: 320px;
     }
-
-    .day-title {
-      font-size: 18px;
+    .event {
+      gap: 10px;
+      padding: 12px;
     }
-
-    .day-date {
-      font-size: 14px;
-    }
-
     .event-time {
-      font-size: 16px;
-      min-width: 50px;
+      min-width: 54px;
+      font-size: 0.875rem;
     }
-
     .event-title {
-      font-size: 14px;
+      font-size: 0.875rem;
     }
-
-    .event-location {
-      font-size: 12px;
-    }
-
     .instagram-button {
-      padding: 12px 24px;
-      font-size: 14px;
+      padding: 10px 20px;
+      font-size: 0.875rem;
     }
-
-    .instagram-button svg {
-      width: 20px;
-      height: 20px;
-    }
-
     .social-section {
-      margin-top: 24px;
+      margin-top: 20px;
     }
   }
 </style>
 
 <script>
-  const days = document.querySelectorAll(
-    '.day-schedule',
-  ) as NodeListOf<HTMLElement>;
-  const indicators = document.querySelectorAll('.indicator');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const card = document.querySelector('.schedule-card') as HTMLElement;
-  let currentIndex = 0;
+  (() => {
+    const section = document.getElementById('schedule') as HTMLElement;
+    const viewport = document.getElementById('carouselViewport') as HTMLElement;
+    const track = document.getElementById('carouselTrack') as HTMLElement;
+    const cards = document.querySelectorAll<HTMLElement>('.day-schedule');
+    const dots = document.querySelectorAll<HTMLButtonElement>('.indicator');
+    const prevBtn = document.getElementById('prevBtn') as HTMLButtonElement;
+    const nextBtn = document.getElementById('nextBtn') as HTMLButtonElement;
 
-  function showDay(index: number) {
-    days.forEach((day) => {
-      day.style.display = 'none';
-    });
+    if (!section || !viewport || !track || !cards.length) return;
 
-    indicators.forEach((indicator) => {
-      indicator.classList.remove('active');
-    });
+    let current = 0;
+    const total = cards.length;
 
-    days[index].style.display = 'block';
-    indicators[index].classList.add('active');
-    currentIndex = index;
-  }
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
+    let delta = 0;
+    let isHoriz: boolean | null = null;
 
-  indicators[0].classList.add('active');
-
-  prevBtn?.addEventListener('click', () => {
-    const newIndex = currentIndex === 0 ? days.length - 1 : currentIndex - 1;
-    showDay(newIndex);
-  });
-
-  nextBtn?.addEventListener('click', () => {
-    const newIndex = currentIndex === days.length - 1 ? 0 : currentIndex + 1;
-    showDay(newIndex);
-  });
-
-  indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-      showDay(index);
-    });
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      prevBtn?.click();
-    } else if (e.key === 'ArrowRight') {
-      nextBtn?.click();
-    }
-  });
-
-  let startX = 0;
-  let currentX = 0;
-  let isDragging = false;
-  const SWIPE_THRESHOLD = 50;
-
-  function onDragStart(clientX: number) {
-    isDragging = true;
-    startX = clientX;
-    currentX = clientX;
-    card?.classList.add('dragging');
-  }
-
-  function onDragMove(clientX: number) {
-    if (!isDragging) return;
-    currentX = clientX;
-    const diff = currentX - startX;
-
-    card?.classList.remove('drag-left', 'drag-right');
-
-    if (diff > 10) {
-      card?.classList.add('drag-right');
-    } else if (diff < -10) {
-      card?.classList.add('drag-left');
-    }
-  }
-
-  function onDragEnd() {
-    if (!isDragging) return;
-    isDragging = false;
-
-    const diff = currentX - startX;
-
-    card?.classList.remove('dragging', 'drag-left', 'drag-right');
-
-    if (diff > SWIPE_THRESHOLD) {
-      prevBtn?.click();
-    } else if (diff < -SWIPE_THRESHOLD) {
-      nextBtn?.click();
+    function cssVar(name: string, fallback: number): number {
+      return (
+        parseFloat(getComputedStyle(section).getPropertyValue(name)) || fallback
+      );
     }
 
-    startX = 0;
-    currentX = 0;
-  }
+    function cardWidth(): number {
+      return viewport.clientWidth - 2 * cssVar('--peek', 44);
+    }
 
-  card?.addEventListener('mousedown', (e) => {
-    onDragStart(e.clientX);
-  });
+    function baseX(index: number): number {
+      const peek = cssVar('--peek', 44);
+      const gap = cssVar('--card-gap', 14);
+      return -(index * (cardWidth() + gap)) + peek;
+    }
 
-  document.addEventListener('mousemove', (e) => {
-    onDragMove(e.clientX);
-  });
+    function move(x: number, animate = true): void {
+      track.style.transition = animate
+        ? 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+        : 'none';
+      track.style.transform = `translateX(${x}px)`;
+    }
 
-  document.addEventListener('mouseup', () => {
-    onDragEnd();
-  });
+    function go(index: number): void {
+      current = Math.max(0, Math.min(index, total - 1));
 
-  card?.addEventListener(
-    'touchstart',
-    (e) => {
-      const touch = e.touches[0];
-      onDragStart(touch.clientX);
-    },
-    { passive: true },
-  );
+      cards.forEach((c, i) => c.classList.toggle('active', i === current));
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+        d.setAttribute('aria-pressed', String(i === current));
+      });
 
-  card?.addEventListener(
-    'touchmove',
-    (e) => {
-      const touch = e.touches[0];
-      onDragMove(touch.clientX);
-    },
-    { passive: true },
-  );
+      move(baseX(current));
+    }
 
-  card?.addEventListener('touchend', () => {
-    onDragEnd();
-  });
+    move(baseX(0), false);
+    prevBtn?.addEventListener('click', () => go(current - 1));
+    nextBtn?.addEventListener('click', () => go(current + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+    document.addEventListener('keydown', ({ key }) => {
+      if (key === 'ArrowLeft') go(current - 1);
+      if (key === 'ArrowRight') go(current + 1);
+    });
+
+    viewport.addEventListener('mousedown', (e) => {
+      dragging = true;
+      startX = e.clientX;
+      delta = 0;
+      track.style.transition = 'none';
+      viewport.classList.add('grabbing');
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!dragging) return;
+      delta = e.clientX - startX;
+      track.style.transform = `translateX(${baseX(current) + delta}px)`;
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (!dragging) return;
+      dragging = false;
+      viewport.classList.remove('grabbing');
+      settle();
+    });
+
+    viewport.addEventListener(
+      'touchstart',
+      (e) => {
+        dragging = true;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        delta = 0;
+        isHoriz = null;
+        track.style.transition = 'none';
+      },
+      { passive: true },
+    );
+
+    viewport.addEventListener(
+      'touchmove',
+      (e) => {
+        if (!dragging) return;
+
+        const dx = e.touches[0].clientX - startX;
+        const dy = e.touches[0].clientY - startY;
+
+        if (isHoriz === null) {
+          if (Math.abs(dx) > Math.abs(dy) + 4) isHoriz = true;
+          else if (Math.abs(dy) > Math.abs(dx) + 4) isHoriz = false;
+          else return;
+        }
+
+        if (!isHoriz) return;
+
+        delta = dx;
+        track.style.transform = `translateX(${baseX(current) + delta}px)`;
+      },
+      { passive: true },
+    );
+
+    viewport.addEventListener('touchend', () => {
+      if (!dragging) return;
+      dragging = false;
+      if (!isHoriz) {
+        move(baseX(current));
+        return;
+      }
+      settle();
+    });
+
+    function settle(): void {
+      const threshold = cardWidth() * 0.22;
+      if (delta < -threshold) go(current + 1);
+      else if (delta > threshold) go(current - 1);
+      else move(baseX(current));
+      delta = 0;
+    }
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => move(baseX(current), false), 100);
+    });
+  })();
 </script>
