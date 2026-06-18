@@ -27,6 +27,13 @@ import Sponsors from './Sponsors.astro';
     font-style: normal;
     font-display: swap;
   }
+  @font-face {
+    font-family: 'Pocheon';
+    src: url('/fonts/pocheon.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
   #background {
     position: fixed;
@@ -67,11 +74,13 @@ import Sponsors from './Sponsors.astro';
   }
 
   h2 {
+    font-family: 'Pocheon', serif;
     margin: 16px 0 0 0;
     font-weight: 600;
     color: #111827;
     font-size: 32px;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.05em;
+    line-height: 1;
   }
 
   @media screen and (max-width: 768px) {
