@@ -29,7 +29,7 @@ const { days } = scheduleData as { days: Day[] };
           aria-label={`${day.dayName}, ${day.day} de ${day.month}`}
           aria-pressed={index === 0 ? 'true' : 'false'}
         >
-          <span class="day-initial">{day.dayName.slice(0, 1)}</span>
+          <span class="day-initial">{day.dayName === 'miércoles' ? 'X' : day.dayName.slice(0, 1)}</span>
           <span class="day-number">{day.day}</span>
         </button>
       ))
