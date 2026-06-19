@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --clr-primary: #962000;
+  --clr-text: #111827;
+  --clr-muted: #6b7280;
+  --clr-border: #e5e7eb;
+  --clr-surface: #f9fafb;
+  --clr-white: #ffffff;
+  --radius-card: 20px;
+  --radius-event: 12px;
+  --ease: 0.3s ease;
+}

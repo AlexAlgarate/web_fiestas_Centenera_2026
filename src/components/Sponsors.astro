@@ -62,7 +62,7 @@ const images = import.meta.glob<{ default: { src: string } }>(
   #sponsors {
     width: 100%;
     padding: 40px 16px;
-    background: white;
+    background: var(--clr-white);
   }
 
   .sponsors-container {
@@ -78,7 +78,7 @@ const images = import.meta.glob<{ default: { src: string } }>(
   .sponsors-header h2 {
     font-size: 36px;
     font-weight: 700;
-    color: #111827;
+    color: var(--clr-text);
     margin: 0;
     letter-spacing: -0.02em;
   }
@@ -98,7 +98,7 @@ const images = import.meta.glob<{ default: { src: string } }>(
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    background: #f9fafb;
+    background: var(--clr-surface);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
   }
