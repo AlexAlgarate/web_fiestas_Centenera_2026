@@ -8,8 +8,8 @@ import Sponsors from './Sponsors.astro';
   <img id="background" src={background.src} alt="" fetchpriority="high" />
   <main>
     <section id="hero">
-      <h1>Centenera</h1>
-      <h2>Fiestas 2026</h2>
+      <h1 class="title">Centenera</h1>
+      <h2 class="header">Horarios Fiestas 2026</h2>
     </section>
   </main>
 </div>
@@ -23,85 +23,71 @@ import Sponsors from './Sponsors.astro';
     font-family: 'Bridge';
     src: url('/fonts/Bridge-Regular.e7ea9f05ba63bbd48f7563f34.ebe8e926d1194c0e642324237a53b446.woff2')
       format('woff2');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Pocheon';
     src: url('/fonts/pocheon.woff2') format('woff2');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
 
   #background {
     position: fixed;
-    top: 0;
-    left: 0;
+    /* top: 0;
+    left: 0; */
+    inset: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-    filter: blur(100px);
+    filter: blur(80px);
+    /* filter: blur(100px); */
   }
 
   #container {
+    display: flex;
+    flex-direction: column;
     font-family:
       Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial,
       sans-serif;
-    display: flex;
-    flex-direction: column;
   }
 
   #hero {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding: 32px 16px 24px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem 1.5rem;
     text-align: center;
-    min-height: auto;
-    color: #962000;
   }
 
-  h1 {
-    font-family: 'Bridge', serif;
-    font-size: 96px;
+  .title {
     margin: 0;
+
+    font-family: 'Bridge', serif;
+    color: #962000;
+    font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 900;
+    line-height: 1;
     letter-spacing: 0.08em;
-    line-height: 1;
+    transform: translateX(0.25em);
   }
 
-  h2 {
+  .header {
+    margin: 1rem 0 0 0;
+
     font-family: 'Pocheon', serif;
-    margin: 16px 0 0 0;
     font-weight: 600;
-    color: #111827;
-    font-size: 32px;
-    letter-spacing: 0.05em;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
     line-height: 1;
-  }
+    letter-spacing: 0.05em;
+    color: #111827;
 
-  @media screen and (max-width: 768px) {
-    h1 {
-      font-size: 64px;
-      letter-spacing: 0.08em;
-    }
-
-    h2 {
-      font-size: 24px;
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    h1 {
-      font-size: 48px;
-      letter-spacing: 0.08em;
-    }
-
-    h2 {
-      font-size: 20px;
-    }
+    transform: translateX(24px);
   }
 </style>
