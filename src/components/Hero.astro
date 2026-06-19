@@ -12,35 +12,34 @@ import centeneraPhoto from '../assets/imagen-centenera.jpeg';
     alt=""
     fetchpriority="high"
   />
-  <div>
-    <section class="w-full flex flex-col items-center">
-      <div class="relative w-full overflow-hidden">
-        <h1
-          class="absolute z-10 m-0 font-bridge text-(--clr-primary) text-5xl sm:text-6xl
-            md:text-7xl lg:text-8xl font-black leading-none tracking-[0.08em]
-            mr-[-0.08em] pl-[0.48em] top-[4%] md:top-[6%] lg:top-[8%] left-1/2
-            w-full text-center box-border -translate-x-1/2
-            [text-shadow:0_12px_18px_rgba(255,255,255,0.85)]"
-        >
-          Centenera
-        </h1>
-        <img
-          src={centeneraPhoto.src}
-          alt="Vista de Centenera"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-          class="block w-full h-auto max-h-[60vh] md:max-h-[65vh] object-cover object-center"
-        />
-      </div>
-      <h2
-        class="mt-8 mb-6 px-6 text-center font-pocheon text-3xl font-semibold
-        leading-tight tracking-[0.08em] text-(--clr-text) sm:text-4xl md:text-5xl"
-      >
-        Horarios Fiestas 2026
-      </h2>
-    </section>
-  </div>
-</div>
 
-<style></style>
+  <section class="w-full flex flex-col items-center">
+    <div
+      class="relative flex w-full items-center justify-center overflow-hidden"
+    >
+      <h1
+        class="absolute z-10 m-0 box-border w-full pl-[0.48em] pr-[-0.08em]
+          text-center font-bridge text-(--clr-primary) text-5xl sm:text-6xl
+            font-black leading-none tracking-[0.08em]
+            mr-[-0.08em] left-1/2 -translate-x-1/2
+            [text-shadow:0_12px_18px_rgba(255,255,255,0.85)] md:text-7xl lg:text-8xl"
+      >
+        Centenera
+      </h1>
+      <img
+        src={centeneraPhoto.src}
+        alt="Vista de Centenera"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        class="block w-full h-auto max-h-[60vh] md:max-h-[65vh] object-cover object-center"
+      />
+    </div>
+    <h2
+      class="mt-8 mb-6 px-6 text-center font-pocheon text-3xl font-semibold
+        leading-tight tracking-[0.08em] text-(--clr-text) sm:text-4xl md:text-5xl"
+    >
+      Horarios Fiestas 2026
+    </h2>
+  </section>
+</div>
