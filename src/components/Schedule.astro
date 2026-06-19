@@ -177,8 +177,22 @@ const { days } = scheduleData as { days: Day[] };
     overflow-x: auto;
     padding: 10px 4px 14px;
     scroll-snap-align: x proximity;
+    justify-content: start;
   }
+  @media (min-width: 640px) {
+    .days-container {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      max-width: 640px;
+      margin: 0 auto;
+      overflow-x: visible;
+      justify-content: unset;
+    }
 
+    .day-card {
+      width: 100%;
+    }
+  }
   .day-card {
     flex-shrink: 0;
     scroll-snap-align: start;
