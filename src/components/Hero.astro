@@ -6,11 +6,24 @@ import centeneraPhoto from '../assets/imagen-centenera.jpeg';
 ---
 
 <div class="flex flex-col font-sans">
-  <img id="background" src={background.src} alt="" fetchpriority="high" />
+  <img
+    class="fixed inset-0 w-full h-full z-[-1] blur-[80px]"
+    src={background.src}
+    alt=""
+    fetchpriority="high"
+  />
   <div>
-    <section id="hero">
-      <div class="hero-media">
-        <h1 class="title">Centenera</h1>
+    <section class="flex flex-col items-center w-full">
+      <div class="relative w-full">
+        <h1
+          class="absolute z-10 m-0 font-bridge text-(--clr-primary) text-5xl sm:text-6xl
+            md:text-7xl lg:text-8xl font-black leading-none tracking-[0.08em]
+            mr-[-0.08em] pl-[0.48em] top-[4%] md:top-[6%] lg:top-[8%] left-1/2
+            w-full text-center box-border -translate-x-1/2
+            [text-shadow:0_12px_18px_rgba(255,255,255,0.85)]"
+        >
+          Centenera
+        </h1>
         <div class="w-full overflow-hidden leading-0">
           <img
             src={centeneraPhoto.src}
@@ -18,7 +31,7 @@ import centeneraPhoto from '../assets/imagen-centenera.jpeg';
             loading="eager"
             decoding="async"
             fetchpriority="high"
-            class="block w-full h-auto max-h-[60vh] object-cover object-center"
+            class="block w-full h-auto max-h-[60vh] md:max-h-[65vh] object-cover object-center"
           />
         </div>
       </div>
@@ -33,63 +46,4 @@ import centeneraPhoto from '../assets/imagen-centenera.jpeg';
   </div>
 </div>
 
-<style>
-  #background {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    filter: blur(80px);
-  }
-
-  #hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  .hero-media {
-    position: relative;
-    width: 100%;
-  }
-
-  .title {
-    position: absolute;
-    z-index: 2;
-    margin: 0;
-    font-family: 'Bridge', serif;
-    color: var(--clr-primary);
-    font-size: clamp(2.5rem, 8vw, 6rem);
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: 0.08em;
-    margin-right: -0.08em;
-    padding-left: 0.48em;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    top: 4%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
-  }
-
-  @media (min-width: 768px) {
-    .title {
-      font-size: clamp(3rem, 7vw, 6rem);
-      top: 6%;
-    }
-
-    .photo-wrapper img {
-      max-height: 65vh;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .title {
-      top: 8%;
-    }
-  }
-</style>
+<style></style>
