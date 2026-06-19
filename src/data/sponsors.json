@@ -127,6 +127,36 @@
       "name": "Matteo Taller",
       "image": "matteo-taller.jpg",
       "link": ""
+    },
+    {
+      "id": 22,
+      "name": "Grupo Lino",
+      "image": "grupo-lino.jpg",
+      "link": "https://grupolino.com/"
+    },
+    {
+      "id": 23,
+      "name": "Bar Lluís",
+      "image": "bar-lluis.jpg",
+      "link": "https://www.instagram.com/barlluis_binissalem"
+    },
+    {
+      "id": 24,
+      "name": "Óscar Auto",
+      "image": "oscar-auto.jpg",
+      "link": "http://www.oscarauto.es/"
+    },
+    {
+      "id": 25,
+      "name": "La Posada de Consuelito",
+      "image": "la-posada-de-consuelito.jpg",
+      "link": "https://www.laposadadeconsuelito.es/"
+    },
+    {
+      "id": 26,
+      "name": "Meccanica",
+      "image": "meccanica.jpg",
+      "link": ""
     }
   ]
 }
