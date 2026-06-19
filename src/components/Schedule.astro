@@ -519,6 +519,32 @@ const { days } = scheduleData as { days: Day[] };
       padding: 32px 0;
     }
 
+    .days-container {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 4px;
+      overflow-x: visible;
+      justify-content: unset;
+      padding: 10px 12px 14px;
+    }
+
+    .day-card {
+      width: auto;
+      height: auto;
+      aspect-ratio: 3 / 4;
+      gap: 0;
+      padding: 2px 0;
+      border-radius: 12px;
+    }
+
+    .day-initial {
+      font-size: clamp(14px, 4.5vw, 20px);
+    }
+
+    .day-number {
+      font-size: clamp(8px, 2.5vw, 11px);
+    }
+
     .nav-button {
       display: none;
     }
