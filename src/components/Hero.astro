@@ -1,46 +1,39 @@
 ---
+import '../styles/global.css';
+
 import background from '../assets/background.svg';
 import centeneraPhoto from '../assets/imagen-centenera.jpeg';
 ---
 
-<div id="container">
+<div class="flex flex-col font-sans">
   <img id="background" src={background.src} alt="" fetchpriority="high" />
   <div>
     <section id="hero">
       <div class="hero-media">
         <h1 class="title">Centenera</h1>
-        <div class="photo-wrapper">
+        <div class="w-full overflow-hidden leading-0">
           <img
             src={centeneraPhoto.src}
             alt="Vista de Centenera"
             loading="eager"
             decoding="async"
             fetchpriority="high"
+            class="block w-full h-auto max-h-[60vh] object-cover object-center"
           />
         </div>
       </div>
-      <h2 class="header">Horarios Fiestas 2026</h2>
+      <h2
+        class="mt-6 mx-4 mb-4 font-pocheon font-semibold
+        text-3xl sm:text-4xl md:text-5xl leading-none
+        tracking-wider text-(--clr-text) text-center pl-[1em] md:mt-8"
+      >
+        Horarios Fiestas 2026
+      </h2>
     </section>
   </div>
 </div>
 
 <style>
-  @font-face {
-    font-family: 'Bridge';
-    src: url('/fonts/Bridge-Regular.e7ea9f05ba63bbd48f7563f34.ebe8e926d1194c0e642324237a53b446.woff2')
-      format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Pocheon';
-    src: url('/fonts/pocheon.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
   #background {
     position: fixed;
     inset: 0;
@@ -48,14 +41,6 @@ import centeneraPhoto from '../assets/imagen-centenera.jpeg';
     height: 100%;
     z-index: -1;
     filter: blur(80px);
-  }
-
-  #container {
-    display: flex;
-    flex-direction: column;
-    font-family:
-      Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial,
-      sans-serif;
   }
 
   #hero {
@@ -91,33 +76,6 @@ import centeneraPhoto from '../assets/imagen-centenera.jpeg';
     box-sizing: border-box;
   }
 
-  .photo-wrapper {
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-  }
-
-  .photo-wrapper img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 60vh;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .header {
-    margin: 1.5rem 1rem 0;
-    font-family: 'Pocheon', serif;
-    font-weight: 600;
-    font-size: clamp(1.5rem, 4vw, 2.25rem);
-    line-height: 1;
-    letter-spacing: 0.05em;
-    color: var(--clr-text);
-    text-align: center;
-    padding-left: 1em;
-  }
-
   @media (min-width: 768px) {
     .title {
       font-size: clamp(3rem, 7vw, 6rem);
@@ -126,10 +84,6 @@ import centeneraPhoto from '../assets/imagen-centenera.jpeg';
 
     .photo-wrapper img {
       max-height: 65vh;
-    }
-
-    .header {
-      margin-top: 2rem;
     }
   }
 

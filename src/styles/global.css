@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 :root {
   --clr-primary: #962000;
@@ -12,4 +10,26 @@
   --radius-card: 20px;
   --radius-event: 12px;
   --ease: 0.3s ease;
+}
+
+@font-face {
+  font-family: 'Bridge';
+  src: url('/fonts/Bridge-Regular.e7ea9f05ba63bbd48f7563f34.ebe8e926d1194c0e642324237a53b446.woff2')
+    format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pocheon';
+  src: url('/fonts/pocheon.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-bridge: 'Bridge', sans-serif;
+  --font-pocheon: 'Pocheon', sans-serif;
 }
