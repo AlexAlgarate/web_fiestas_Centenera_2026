@@ -19,6 +19,22 @@ const { days } = scheduleData as { days: Day[] };
 ---
 
 <section id="schedule" aria-label="Horarios de las fiestas">
+  <div class="days-container" role="group" aria-label="Seleccionar día">
+    {
+      days.map((day, index) => (
+        <button
+          class:list={['day-card', { active: index === 0 }]}
+          data-index={index}
+          type="button"
+          aria-label={`${day.dayName}, ${day.day} de ${day.month}`}
+          aria-pressed={index === 0 ? 'true' : 'false'}
+        >
+          <span class="day-initial">{day.dayName.slice(0, 1)}</span>
+          <span class="day-number">{day.day}</span>
+        </button>
+      ))
+    }
+  </div>
   <div class="schedule-container">
     <div class="schedule-content">
       <button
@@ -133,7 +149,8 @@ const { days } = scheduleData as { days: Day[] };
 
 <style>
   #schedule {
-    --clr-primary: #3245ff;
+    /* --clr-primary: #3245ff; */
+    --clr-primary: #962000;
     --clr-text: #111827;
     --clr-muted: #6b7280;
     --clr-border: #e5e7eb;
@@ -152,6 +169,84 @@ const { days } = scheduleData as { days: Day[] };
       rgba(255, 255, 255, 0.95) 0%,
       rgba(240, 240, 245, 0.95) 100%
     );
+  }
+
+  .days-container {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 10px 4px 14px;
+    scroll-snap-align: x proximity;
+  }
+
+  .day-card {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    width: 60px;
+    height: 76px;
+
+    border-radius: 16px;
+    border: 1px solid var(--clr-border, #e5e7eb);
+    background: var(--clr-white, #ffffff);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+
+    position: relative;
+    cursor: pointer;
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
+  .day-card:hover {
+    border-color: var(--clr-primary, #3245ff);
+    transform: translateY(-2px);
+  }
+
+  .day-card:focus-visible {
+    outline: 2px solid var(--clr-primary, #3245ff);
+    outline-offset: 3px;
+  }
+
+  .day-initial {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #374151;
+  }
+
+  .day-number {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    color: #9ca3af;
+  }
+
+  .day-card.active {
+    border-color: var(--clr-primary, #3245ff);
+    border-width: 2px;
+    background: rgba(150, 32, 0, 0.06);
+    /* background: rgba(50, 69, 255, 0.06); */
+  }
+
+  .day-card.active .day-initial,
+  .day-card.active .day-number {
+    color: var(--clr-primary, #3245ff);
+  }
+
+  .day-card.active::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--clr-primary, #3245ff);
   }
 
   .schedule-container {
@@ -463,6 +558,7 @@ const { days } = scheduleData as { days: Day[] };
     const dots = document.querySelectorAll<HTMLButtonElement>('.indicator');
     const prevBtn = document.getElementById('prevBtn') as HTMLButtonElement;
     const nextBtn = document.getElementById('nextBtn') as HTMLButtonElement;
+    const dayCards = document.querySelectorAll<HTMLButtonElement>('.day-card');
 
     if (!section || !viewport || !track || !cards.length) return;
 
@@ -510,9 +606,14 @@ const { days } = scheduleData as { days: Day[] };
         d.classList.toggle('active', i === current);
         d.setAttribute('aria-pressed', String(i === current));
       });
+      dayCards.forEach((c, i) => {
+        c.classList.toggle('active', i === current);
+        c.setAttribute('aria-pressed', String(i === current));
+      });
 
       move(baseX(current));
     }
+    dayCards.forEach((c, i) => c.addEventListener('click', () => go(i)));
 
     move(baseX(0), false);
     prevBtn?.addEventListener('click', () => go(current - 1));
