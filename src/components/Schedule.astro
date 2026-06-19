@@ -23,7 +23,10 @@ const { days } = scheduleData as { days: Day[] };
     {
       days.map((day, index) => (
         <button
-          class:list={['day-card', { active: index === 0 }]}
+          class:list={[
+            'day-card',
+            { active: index === 0, highlight: index >= 5 },
+          ]}
           data-index={index}
           type="button"
           aria-label={`${day.dayName}, ${day.day} de ${day.month}`}
@@ -253,6 +256,29 @@ const { days } = scheduleData as { days: Day[] };
   .day-card.active .day-initial,
   .day-card.active .day-number {
     color: var(--clr-primary, #3245ff);
+  }
+
+  .day-card.highlight {
+    border-color: #d4a017;
+    background: linear-gradient(
+      180deg,
+      rgba(212, 160, 23, 0.07) 0%,
+      transparent 50%
+    );
+  }
+
+  .day-card.highlight .day-initial {
+    color: #b8860b;
+  }
+
+  .day-card.highlight.active {
+    border-color: var(--clr-primary);
+    background: rgba(150, 32, 0, 0.06);
+  }
+
+  .day-card.highlight.active .day-initial,
+  .day-card.highlight.active .day-number {
+    color: var(--clr-primary);
   }
 
   .schedule-container {
