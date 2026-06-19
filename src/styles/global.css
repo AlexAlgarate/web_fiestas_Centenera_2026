@@ -32,4 +32,15 @@
 @theme {
   --font-bridge: 'Bridge', sans-serif;
   --font-pocheon: 'Pocheon', sans-serif;
+
+  --color-primary: var(--clr-primary);
+  --color-text: var(--clr-text);
+  --color-muted: var(--clr-muted);
+  --color-border: var(--clr-border);
+  --color-surface: var(--clr-surface);
+
+  --radius-card: var(--radius-card);
+  --radius-event: var(--radius-event);
+
+  --ease-default: ease;
 }
