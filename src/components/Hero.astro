@@ -1,12 +1,24 @@
 ---
 import background from '../assets/background.svg';
+import centeneraPhoto from '../assets/imagen-centenera.jpeg';
 ---
 
 <div id="container">
   <img id="background" src={background.src} alt="" fetchpriority="high" />
   <div>
     <section id="hero">
-      <h1 class="title">Centenera</h1>
+      <div class="hero-media">
+        <h1 class="title">Centenera</h1>
+        <div class="photo-wrapper">
+          <img
+            src={centeneraPhoto.src}
+            alt="Vista de Centenera"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
       <h2 class="header">Horarios Fiestas 2026</h2>
     </section>
   </div>
@@ -50,28 +62,52 @@ import background from '../assets/background.svg';
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 2rem 1rem 1.5rem;
-    text-align: center;
+    width: 100%;
+  }
+
+  .hero-media {
+    position: relative;
+    width: 100%;
   }
 
   .title {
+    position: absolute;
+    z-index: 2;
     margin: 0;
     font-family: 'Bridge', serif;
     color: #962000;
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(2.5rem, 8vw, 6rem);
     font-weight: 900;
     line-height: 1;
     letter-spacing: 0.08em;
     margin-right: -0.08em;
-    text-align: center;
     padding-left: 0.48em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .photo-wrapper {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .photo-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: cover;
+    object-position: center;
   }
 
   .header {
-    margin: 1rem 0 0 0;
+    margin: 1.5rem 1rem 0;
     font-family: 'Pocheon', serif;
     font-weight: 600;
     font-size: clamp(1.5rem, 4vw, 2.25rem);
@@ -80,5 +116,26 @@ import background from '../assets/background.svg';
     color: #111827;
     text-align: center;
     padding-left: 1em;
+  }
+
+  @media (min-width: 768px) {
+    .title {
+      font-size: clamp(3rem, 7vw, 6rem);
+      top: 6%;
+    }
+
+    .photo-wrapper img {
+      max-height: 65vh;
+    }
+
+    .header {
+      margin-top: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .title {
+      top: 8%;
+    }
   }
 </style>
