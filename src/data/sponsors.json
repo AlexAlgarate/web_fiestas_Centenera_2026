@@ -12,13 +12,13 @@
       "image": "nos-vamos-de-encierro.jpg",
       "link": "https://play.google.com/store/apps/details?id=saul.agendatoros&hl=es_419&pli=1"
     },
-
     {
       "id": 3,
-      "name": "Reparaciones K & F",
-      "image": "taller-kyf.jpg",
-      "link": "https://kfreparaciones.eu/"
+      "name": "Gear Cold",
+      "image": "gear-cold.PNG",
+      "link": ""
     },
+
     {
       "id": 4,
       "name": "Talleres Peñalver",
@@ -118,9 +118,9 @@
     },
     {
       "id": 20,
-      "name": "Gear Cold",
-      "image": "gear-cold.PNG",
-      "link": ""
+      "name": "Reparaciones K & F",
+      "image": "taller-kyf.jpg",
+      "link": "https://kfreparaciones.eu/"
     },
     {
       "id": 21,

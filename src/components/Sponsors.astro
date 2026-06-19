@@ -18,7 +18,7 @@ const images = import.meta.glob<{ default: { src: string } }>(
 <section id="sponsors">
   <div class="sponsors-container">
     <div class="sponsors-header">
-      <h2>Nuestros Patrocinadores</h2>
+      <h2>Colaboradores</h2>
     </div>
 
     <div class="sponsors-grid">
@@ -32,14 +32,17 @@ const images = import.meta.glob<{ default: { src: string } }>(
             return null;
           }
 
+          const Tag = sponsor.link ? 'a' : 'div';
+          const linkProps = sponsor.link
+            ? {
+                href: sponsor.link,
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              }
+            : {};
+
           return (
-            <a
-              href={sponsor.link}
-              class="sponsor-card"
-              title={sponsor.name}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Tag class="sponsor-card" title={sponsor.name} {...linkProps}>
               <img
                 src={image?.default.src}
                 alt={sponsor.name}
@@ -47,7 +50,7 @@ const images = import.meta.glob<{ default: { src: string } }>(
                 fetchpriority={index === 0 ? 'high' : 'auto'}
                 decoding="async"
               />
-            </a>
+            </Tag>
           );
         })
       }
