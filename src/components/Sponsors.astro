@@ -15,13 +15,22 @@ const images = import.meta.glob<{ default: { src: string } }>(
 );
 ---
 
-<section id="sponsors">
-  <div class="sponsors-container">
-    <div class="sponsors-header">
-      <h2>Colaboradores</h2>
+<section
+  id="sponsors"
+  class="w-full bg-white px-4 py-10 sm:py-8 max-[480px]:py-6"
+>
+  <div class="max-w-300 mx-auto">
+    <div class="mb-8 text-center sm:mb-6">
+      <h2
+        class="m-0 text-text text-2xl sm:text-4xl font-bold tracking-[-0.02em]"
+      >
+        Colaboradores
+      </h2>
     </div>
 
-    <div class="sponsors-grid">
+    <div
+      class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-3"
+    >
       {
         sponsors.map((sponsor, index) => {
           const imagePath = `../assets/sponsors/${sponsor.image}`;
@@ -42,13 +51,23 @@ const images = import.meta.glob<{ default: { src: string } }>(
             : {};
 
           return (
-            <Tag class="sponsor-card" title={sponsor.name} {...linkProps}>
+            <Tag
+              class="
+                sponsor-card relative flex aspect-3/2 items-center justify-center
+                overflow-hidden rounded-2xl bg-surface no-underline
+                shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-300 
+                ease-in-out hover:-translate-y-1 
+                hover:shadow-[0_12px_24px_rgba(0,0,0,0.15)]"
+              title={sponsor.name}
+              {...linkProps}
+            >
               <img
                 src={image?.default.src}
                 alt={sponsor.name}
                 loading="lazy"
                 fetchpriority={index === 0 ? 'high' : 'auto'}
                 decoding="async"
+                class="h-full w-full object-contain p-4 transition-transform duration-300 ease-in-out group-hover:scale-105"
               />
             </Tag>
           );
@@ -57,96 +76,3 @@ const images = import.meta.glob<{ default: { src: string } }>(
     </div>
   </div>
 </section>
-
-<style>
-  #sponsors {
-    width: 100%;
-    padding: 40px 16px;
-    background: var(--clr-white);
-  }
-
-  .sponsors-container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .sponsors-header {
-    text-align: center;
-    margin-bottom: 32px;
-  }
-
-  .sponsors-header h2 {
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--clr-text);
-    margin: 0;
-    letter-spacing: -0.02em;
-  }
-
-  .sponsors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-  }
-
-  .sponsor-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 16px;
-    aspect-ratio: 3/2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    background: var(--clr-surface);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-  }
-
-  .sponsor-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  }
-
-  .sponsor-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 16px;
-    transition: transform 0.3s ease;
-  }
-
-  .sponsor-card:hover img {
-    transform: scale(1.05);
-  }
-
-  @media screen and (max-width: 768px) {
-    #sponsors {
-      padding: 32px 16px;
-    }
-
-    .sponsors-header h2 {
-      font-size: 28px;
-    }
-
-    .sponsors-grid {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    #sponsors {
-      padding: 24px 16px;
-    }
-
-    .sponsors-header h2 {
-      font-size: 24px;
-    }
-
-    .sponsors-grid {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-    }
-  }
-</style>
