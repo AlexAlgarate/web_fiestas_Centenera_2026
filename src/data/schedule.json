@@ -28,8 +28,8 @@
       "events": [
         {
           "time": "10:30",
-          "title": "Torneo de Ping Pong (inscripción previa)",
-          "location": ""
+          "title": "Torneo de Ping Pong",
+          "location": "Inscipción previa"
         },
         {
           "time": "18:00",
@@ -39,7 +39,7 @@
         {
           "time": "19:00",
           "title": "Juegos Populares para niños",
-          "location": ""
+          "location": "En la plaza"
         }
       ]
     },
@@ -53,7 +53,7 @@
         {
           "time": "11:00",
           "title": "Fiesta del Agua en el Lavadero",
-          "location": "Lavadero"
+          "location": "En el lavadero"
         },
         {
           "time": "18:00",
@@ -75,23 +75,18 @@
       "month": "agosto",
       "events": [
         {
-          "time": "11:00",
-          "title": "Concurso de Calistenia",
-          "location": ""
-        },
-        {
           "time": "18:00",
           "title": "Torneo de Mus",
           "location": ""
         },
         {
-          "time": "21:00",
-          "title": "Desfile de peñas con Charanga Maniseros",
-          "location": ""
+          "time": "20:00",
+          "title": "Concentración y desfile de peñas en la fuente",
+          "location": "¡Este año con sorpresa!"
         },
         {
           "time": "22:00",
-          "title": "Pregón",
+          "title": "Pregón de apertura de fiestas 2026",
           "location": ""
         },
         {
@@ -124,14 +119,14 @@
           "location": ""
         },
         {
-          "time": "A continuación",
+          "time": "13:30",
           "title": "Vermut con Charanga Maniseros",
           "location": ""
         },
         {
           "time": "15:00",
           "title": "Comida Popular",
-          "location": ""
+          "location": "Incluye cubiertos y pan"
         },
         {
           "time": "18:00",
@@ -165,7 +160,7 @@
         {
           "time": "11:00",
           "title": "Bueyada Infantil",
-          "location": ""
+          "location": "Plaza"
         },
         {
           "time": "18:30",
@@ -224,11 +219,6 @@
           "time": "18:00",
           "title": "Desmontaje de la plaza y las calles",
           "location": "Plaza y calles"
-        },
-        {
-          "time": "A continuación",
-          "title": "Almuerzo para los asistentes",
-          "location": ""
         },
         {
           "time": "21:30",
