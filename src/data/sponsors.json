@@ -157,6 +157,42 @@
       "name": "Meccanica",
       "image": "meccanica.jpg",
       "link": ""
+    },
+    {
+      "id": 27,
+      "name": "Bar Centenera",
+      "image": "bar-centenera.jpg",
+      "link": ""
+    },
+    {
+      "id": 28,
+      "name": "Bar Beatriz",
+      "image": "bar-beatriz.jpg",
+      "link": ""
+    },
+    {
+      "id": 29,
+      "name": "Gonzalo",
+      "image": "gonzalo.jpg",
+      "link": ""
+    },
+    {
+      "id": 30,
+      "name": "Gumarfe",
+      "image": "gumarfe.jpg",
+      "link": ""
+    },
+    {
+      "id": 31,
+      "name": "Quesería El Recuerdo",
+      "image": "queseria-el-recuerdo.jpg",
+      "link": ""
+    },
+    {
+      "id": 32,
+      "name": "Reformas Heanvi",
+      "image": "reformas-heanvi.jpg",
+      "link": ""
     }
   ]
 }
