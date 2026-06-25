@@ -168,31 +168,31 @@
       "id": 28,
       "name": "Bar Beatriz",
       "image": "bar-beatriz.jpg",
-      "link": ""
+      "link": "https://www.facebook.com/p/Bar-restaurante-beatriz-100064208104581/"
     },
     {
       "id": 29,
       "name": "Gonzalo",
       "image": "gonzalo.jpg",
-      "link": ""
+      "link": "https://www.linkedin.com/in/gdelucasmoratilla/"
     },
     {
       "id": 30,
       "name": "Gumarfe",
       "image": "gumarfe.jpg",
-      "link": ""
+      "link": "https://gumarfe.com/"
     },
     {
       "id": 31,
       "name": "Quesería El Recuerdo",
       "image": "queseria-el-recuerdo.jpg",
-      "link": ""
+      "link": "https://queseriaelrecuerdo.es/"
     },
     {
       "id": 32,
       "name": "Reformas Heanvi",
       "image": "reformas-heanvi.jpg",
-      "link": ""
+      "link": "https://reformasheanvi.es/"
     }
   ]
 }
