@@ -1,46 +1,77 @@
-# Astro Starter Kit: Basics
+# Fiestas Centenera 2026
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+Single-page website for the annual festivities of **Centenera**, my town ❤️. Displays the 8-day event schedule (August 2–9, 2026) with an interactive carousel, lists 33 sponsors in a responsive grid, and features custom typography and a dark red theme.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Built with [Astro](https://astro.build) v6 and deployed to **Cloudflare Pages**.
 
-## 🚀 Project Structure
+## Tech Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+| Tool                  | Purpose                     |
+| --------------------- | --------------------------- |
+| **Astro 6**           | Static site generator       |
+| **Tailwind CSS v4**   | CSS framework (Vite plugin) |
+| **TypeScript**        | Type safety                 |
+| **ESLint** + Prettier | Linting and formatting      |
+| **Cloudflare Pages**  | Hosting and deployment      |
+| **pnpm**              | Package manager             |
+
+## Project Structure
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   └── fonts/               # Bridge, Pocheon (WOFF2/OTF)
+├── src/
+│   ├── assets/
+│   │   ├── background.svg
+│   │   ├── imagen-centenera.jpeg
+│   │   └── sponsors/        # 33 sponsor logos
+│   ├── components/
+│   │   ├── Hero.astro       # Header with photo and title
+│   │   ├── Schedule.astro   # Day-by-day carousel (drag/swipe)
+│   │   ├── Sponsors.astro   # Sponsor grid
+│   │   └── Footer.astro     # Nav, social links, credits
+│   ├── data/
+│   │   ├── schedule.json    # 8-day event data
+│   │   └── sponsors.json    # 33 sponsors
+│   ├── layouts/
+│   │   └── Layout.astro     # Root HTML layout
+│   ├── pages/
+│   │   └── index.astro      # Single page
+│   └── styles/
+│       └── global.css       # Tailwind v4 + custom theme
+├── astro.config.mjs
+├── tailwind.config.mjs
+├── tsconfig.json
+├── eslint.config.js
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Commands
 
-## 🧞 Commands
+| Command         | Action                               |
+| --------------- | ------------------------------------ |
+| `pnpm install`  | Install dependencies                 |
+| `pnpm dev`      | Dev server at `localhost:4321`       |
+| `pnpm dev:host` | Dev server, network-accessible       |
+| `pnpm build`    | Build to `./dist/`                   |
+| `pnpm preview`  | Preview the production build locally |
+| `pnpm lint`     | ESLint check                         |
+| `pnpm lint:fix` | ESLint auto-fix                      |
+| `pnpm format`   | Prettier format                      |
+| `pnpm deploy`   | Build + deploy to Cloudflare Pages   |
 
-All commands are run from the root of the project, from a terminal:
+## Deployment
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+The site is deployed to **Cloudflare Pages** directly from the GitHub repository.
 
-## 👀 Want to learn more?
+1. Connect the repo to Cloudflare Pages dashboard
+2. Set build command: `pnpm run build`
+3. Set build output directory: `dist`
+4. Cloudflare Pages automatically deploys on every push
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+Developed by [Alex Algarate](https://github.com/AlexAlgarate).
