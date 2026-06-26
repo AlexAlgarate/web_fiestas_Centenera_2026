@@ -1,7 +1,9 @@
 ---
+import Expenses from '../components/Expenses.astro';
 import Hero from '../components/Hero.astro';
 import Schedule from '../components/Schedule.astro';
 import Sponsors from '../components/Sponsors.astro';
+import { SHOW_EXPENSES } from '../config';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -10,4 +12,6 @@ import Layout from '../layouts/Layout.astro';
   <Schedule />
 
   <Sponsors />
+
+  {SHOW_EXPENSES && <Expenses />}
 </Layout>

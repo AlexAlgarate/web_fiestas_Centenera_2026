@@ -1,0 +1,11 @@
+{
+  "updatedAt": "2026-09-08",
+  "categories": [
+    { "name": "Toros", "total": 7700.0, "count": 1 },
+    { "name": "Música", "total": 10880.0, "count": 7 },
+    { "name": "Comidas", "total": 0, "count": 0 },
+    { "name": "Juegos Populares", "total": 0, "count": 0 },
+    { "name": "Varios", "total": 116.0, "count": 2 },
+    { "name": "Comida SSanta", "total": 360.39, "count": 7 }
+  ]
+}
