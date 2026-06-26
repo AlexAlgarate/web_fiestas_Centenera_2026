@@ -1,11 +1,9 @@
 const COLUMN_NAME = 0;
-const COLUMN_COUNT = 1;
-const COLUMN_TOTAL = 2;
+const COLUMN_TOTAL = 1;
 
 export interface ExpenseCategory {
   name: string;
   total: number;
-  count: number;
 }
 
 export interface ExpenseCategoryWithShare extends ExpenseCategory {
@@ -107,10 +105,8 @@ async function fetchFromGoogleSheet(
       if (/^(total( general)?|suma( total)?)$/i.test(name)) continue;
 
       const total = parseSpanishNumber(row[COLUMN_TOTAL] ?? '0');
-      const count =
-        parseInt((row[COLUMN_COUNT] ?? '0').replace(/[^\d-]/g, ''), 10) || 0;
 
-      categories.push({ name, total, count });
+      categories.push({ name, total });
     }
 
     return categories.length > 0 ? categories : null;
