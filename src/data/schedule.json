@@ -15,7 +15,7 @@
         {
           "time": "A continuación",
           "title": "Almuerzo para los asistentes",
-          "location": ""
+          "location": null
         }
       ]
     },
@@ -34,7 +34,7 @@
         {
           "time": "18:00",
           "title": "Torneo de Chinchón",
-          "location": ""
+          "location": null
         },
         {
           "time": "19:00",
@@ -58,12 +58,12 @@
         {
           "time": "18:00",
           "title": "Torneo de Brisca",
-          "location": ""
+          "location": null
         },
         {
           "time": "20:00",
           "title": "Torneo de Fútbol Sala Interpeñas",
-          "location": ""
+          "location": null
         }
       ]
     },
@@ -77,7 +77,7 @@
         {
           "time": "18:00",
           "title": "Torneo de Mus",
-          "location": ""
+          "location": null
         },
         {
           "time": "20:00",
@@ -87,17 +87,17 @@
         {
           "time": "22:00",
           "title": "Pregón de apertura de fiestas 2026",
-          "location": ""
+          "location": null
         },
         {
           "time": "22:30",
           "title": "Cena de la Ronda",
-          "location": ""
+          "location": null
         },
         {
           "time": "00:00",
           "title": "Comienzo de la Ronda",
-          "location": ""
+          "location": null
         }
       ]
     },
@@ -111,17 +111,17 @@
         {
           "time": "11:00",
           "title": "Preparación de la Comida Popular",
-          "location": ""
+          "location": null
         },
         {
           "time": "12:30",
           "title": "Misa y Procesión en Honor al Santo Cristo",
-          "location": ""
+          "location": null
         },
         {
           "time": "13:30",
           "title": "Vermut con Charanga Maniseros",
-          "location": ""
+          "location": null
         },
         {
           "time": "15:00",
@@ -131,17 +131,17 @@
         {
           "time": "18:00",
           "title": "Castillos Hinchables y Fiesta de la Espuma",
-          "location": ""
+          "location": null
         },
         {
           "time": "22:30",
           "title": "Flamenco a cargo del grupo Caramelo",
-          "location": ""
+          "location": null
         },
         {
           "time": "01:00",
           "title": "Discoteca Móvil Infinity",
-          "location": ""
+          "location": null
         }
       ]
     },
@@ -155,7 +155,7 @@
         {
           "time": "10:30",
           "title": "Desencajonamiento de las reses",
-          "location": ""
+          "location": null
         },
         {
           "time": "11:00",
@@ -170,7 +170,7 @@
         {
           "time": "00:00",
           "title": "Orquesta Mambo Show",
-          "location": ""
+          "location": null
         }
       ]
     },
@@ -184,12 +184,12 @@
         {
           "time": "11:00",
           "title": "Encierro con Carretones",
-          "location": ""
+          "location": null
         },
         {
           "time": "12:00",
           "title": "Desmontaje del Escenario",
-          "location": ""
+          "location": null
         },
         {
           "time": "18:30",
@@ -199,7 +199,7 @@
         {
           "time": "00:00",
           "title": "Orquesta Adicción",
-          "location": ""
+          "location": null
         }
       ]
     },
@@ -213,7 +213,7 @@
         {
           "time": "09:00",
           "title": "Preparación de la carne",
-          "location": ""
+          "location": null
         },
         {
           "time": "18:00",
@@ -223,22 +223,22 @@
         {
           "time": "21:30",
           "title": "Caldereta de carne de toro",
-          "location": ""
+          "location": null
         },
         {
           "time": "22:30",
           "title": "Entrega de premios",
-          "location": ""
+          "location": null
         },
         {
           "time": "23:45",
           "title": "Relevo de Comisión de Fiestas",
-          "location": ""
+          "location": null
         },
         {
           "time": "00:00",
           "title": "Traca Fin de Fiestas",
-          "location": ""
+          "location": null
         }
       ]
     }
