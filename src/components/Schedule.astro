@@ -1,4 +1,5 @@
 ---
+import { INSTAGRAM_URL } from '../config';
 import scheduleData from '../data/schedule.json';
 
 interface ScheduleEvent {
@@ -131,7 +132,7 @@ const { days } = scheduleData as { days: Day[] };
 
     <div class="social-section">
       <a
-        href="https://www.instagram.com/p/DTyETOODLZ2/?igsh=bnRlODE4ZjRqNHZ6"
+        href={INSTAGRAM_URL}
         target="_blank"
         rel="noopener noreferrer"
         class="instagram-button"

@@ -18,3 +18,6 @@
  *    build time, so a fresh build is always required either way.
  */
 export const SHOW_EXPENSES = import.meta.env.PUBLIC_SHOW_EXPENSES === 'true';
+
+export const INSTAGRAM_URL =
+  'https://www.instagram.com/p/DTyETOODLZ2/?igsh=bnRlODE4ZjRqNHZ6';

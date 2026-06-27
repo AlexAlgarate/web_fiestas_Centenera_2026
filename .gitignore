@@ -29,4 +29,3 @@ pnpm-debug.log*
 .dev.vars*
 !.dev.vars.example
 !.env.example
-pnpm-workspace.yaml
