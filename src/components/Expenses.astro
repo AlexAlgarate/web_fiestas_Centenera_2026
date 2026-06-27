@@ -35,12 +35,10 @@ const gradientCSS = hasData
   ? gradientStops.join(', ')
   : 'var(--clr-border) 0% 100%';
 
-function formatCurrency(value: number): string {
-  const sign = value < 0 ? '-' : '';
-  const [intPart, decPart] = Math.abs(value).toFixed(2).split('.');
-  const grouped = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-  return `${sign}${grouped},${decPart} €`;
-}
+const currencyFormatter = new Intl.NumberFormat('es-ES', {
+  style: 'currency',
+  currency: 'EUR',
+});
 
 const percentageFormatter = new Intl.NumberFormat('es-ES', {
   minimumFractionDigits: 2,
@@ -93,7 +91,9 @@ const chartAriaLabel = hasData
             {
               hasData ? (
                 <>
-                  <span class="donut-total">{formatCurrency(grandTotal)}</span>
+                  <span class="donut-total">
+                    {currencyFormatter.format(grandTotal)}
+                  </span>
                   <span class="donut-total-label">Total</span>
                 </>
               ) : (
@@ -139,7 +139,7 @@ const chartAriaLabel = hasData
                     {cat.name}
                   </td>
                   <td class="px-3 py-3 text-right font-medium text-text whitespace-nowrap">
-                    {formatCurrency(cat.total)}
+                    {currencyFormatter.format(cat.total)}
                   </td>
                   <td class="px-4 py-3 text-right text-muted whitespace-nowrap">
                     {percentageFormatter.format(cat.percentage)}%
@@ -154,7 +154,7 @@ const chartAriaLabel = hasData
             >
               <td class="px-4 py-3">Total</td>
               <td class="px-3 py-3 text-right whitespace-nowrap">
-                {formatCurrency(grandTotal)}
+                {currencyFormatter.format(grandTotal)}
               </td>
               <td class="px-4 py-3 text-right whitespace-nowrap">
                 {percentageFormatter.format(hasData ? 100 : 0)}%
