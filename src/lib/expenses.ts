@@ -65,6 +65,10 @@ function parseCSV(text: string): string[][] {
   return rows.filter((r) => r.some((cell) => cell.trim().length > 0));
 }
 
+function sanitize(str: string): string {
+  return str.replace(/[<>"']/g, '');
+}
+
 function parseSpanishNumber(raw: string): number {
   const cleaned = raw.replace(/[€\s\u00A0]/g, '');
   const normalized = cleaned.replace(/\./g, '').replace(',', '.');
@@ -106,7 +110,7 @@ async function fetchFromGoogleSheet(
 
       const total = parseSpanishNumber(row[COLUMN_TOTAL] ?? '0');
 
-      categories.push({ name, total });
+      categories.push({ name: sanitize(name), total });
     }
 
     return categories.length > 0 ? categories : null;
