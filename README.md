@@ -1,77 +1,82 @@
 # Fiestas Centenera 2026
 
-Single-page website for the annual festivities of **Centenera**, my town ❤️. Displays the 8-day event schedule (August 2–9, 2026) with an interactive carousel, lists 33 sponsors in a responsive grid, and features custom typography and a dark red theme.
+Página web estática con el programa de fiestas de verano de **Centenera**. Muestra el programa de fiestas de 8 días (2–9 de agosto de 2026) con un carrusel interactivo, lista de colaboradores y sección de cuentas con datos desde Google Sheets.
 
-Built with [Astro](https://astro.build) v6 and deployed to **Cloudflare Pages**.
-
-## Tech Stack
-
-| Tool                  | Purpose                     |
-| --------------------- | --------------------------- |
-| **Astro 6**           | Static site generator       |
-| **Tailwind CSS v4**   | CSS framework (Vite plugin) |
-| **TypeScript**        | Type safety                 |
-| **ESLint** + Prettier | Linting and formatting      |
-| **Cloudflare Pages**  | Hosting and deployment      |
-| **pnpm**              | Package manager             |
-
-## Project Structure
-
-```text
-/
-├── public/
-│   ├── favicon.ico
-│   ├── favicon.svg
-│   └── fonts/               # Bridge, Pocheon (WOFF2/OTF)
-├── src/
-│   ├── assets/
-│   │   ├── background.svg
-│   │   ├── imagen-centenera.jpeg
-│   │   └── sponsors/        # 33 sponsor logos
-│   ├── components/
-│   │   ├── Hero.astro       # Header with photo and title
-│   │   ├── Schedule.astro   # Day-by-day carousel (drag/swipe)
-│   │   ├── Sponsors.astro   # Sponsor grid
-│   │   └── Footer.astro     # Nav, social links, credits
-│   ├── data/
-│   │   ├── schedule.json    # 8-day event data
-│   │   └── sponsors.json    # 33 sponsors
-│   ├── layouts/
-│   │   └── Layout.astro     # Root HTML layout
-│   ├── pages/
-│   │   └── index.astro      # Single page
-│   └── styles/
-│       └── global.css       # Tailwind v4 + custom theme
-├── astro.config.mjs
-├── tailwind.config.mjs
-├── tsconfig.json
-├── eslint.config.js
-└── package.json
-```
-
-## Commands
-
-| Command         | Action                               |
-| --------------- | ------------------------------------ |
-| `pnpm install`  | Install dependencies                 |
-| `pnpm dev`      | Dev server at `localhost:4321`       |
-| `pnpm dev:host` | Dev server, network-accessible       |
-| `pnpm build`    | Build to `./dist/`                   |
-| `pnpm preview`  | Preview the production build locally |
-| `pnpm lint`     | ESLint check                         |
-| `pnpm lint:fix` | ESLint auto-fix                      |
-| `pnpm format`   | Prettier format                      |
-| `pnpm deploy`   | Build + deploy to Cloudflare Pages   |
-
-## Deployment
-
-The site is deployed to **Cloudflare Pages** directly from the GitHub repository.
-
-1. Connect the repo to Cloudflare Pages dashboard
-2. Set build command: `pnpm run build`
-3. Set build output directory: `dist`
-4. Cloudflare Pages automatically deploys on every push
+Construida con [Astro](https://astro.build) 6 + Tailwind CSS v4 + TypeScript y desplegada en **Cloudflare Pages**.
 
 ---
 
-Developed by [Alex Algarate](https://github.com/AlexAlgarate).
+## Primeros pasos
+
+```bash
+git clone https://github.com/AlexAlgarate/fiestas-centenera-2026.git
+cd fiestas-centenera-2026
+pnpm install
+pnpm dev
+```
+
+El servidor de desarrollo arranca en `http://localhost:4321`.
+
+## Scripts disponibles
+
+| Comando        | Acción                           |
+| -------------- | -------------------------------- |
+| `pnpm dev`     | Servidor de desarrollo           |
+| `pnpm build`   | Build estático en `dist/`        |
+| `pnpm preview` | Build + previsualización local   |
+| `pnpm deploy`  | Build + despliegue en Cloudflare |
+| `pnpm lint`    | ESLint                           |
+| `pnpm format`  | Prettier                         |
+
+## Configurar la sección de cuentas (Google Sheets)
+
+La sección de gastos se alimenta de un CSV publicado desde Google Sheets.
+
+### 1. Crear la hoja
+
+Crea una hoja con dos columnas: **concepto** y **total**. La primera fila se ignora como cabecera.
+
+Ejemplo:
+
+| Concepto          | Total   |
+| ----------------- | ------- |
+| Comidas populares | 1500,00 |
+| Charanga          | 800,00  |
+
+### 2. Publicar como CSV
+
+En Google Sheets: **Archivo → Compartir → Publicar en web**. Selecciona «Valores separados por comas (.csv)» y copia la URL.
+
+### 3. Configurar la URL
+
+Crea un archivo `.env` en la raíz del proyecto:
+
+```env
+PUBLIC_SHOW_EXPENSES=true
+GOOGLE_SHEET_EXPENSES_CSV_URL=https://docs.google.com/spreadsheets/d/...
+```
+
+En producción, define `PUBLIC_SHOW_EXPENSES` y `GOOGLE_SHEET_EXPENSES_CSV_URL` como variables de entorno en el panel de **Cloudflare Pages → Settings → Environment variables** y redepliega.
+
+> **Aviso**: el CSV es público. Cualquiera con la URL puede ver los datos. No incluyas información sensible.
+
+## Despliegue en Cloudflare Pages
+
+### Desde GitHub (automático)
+
+1. Conecta el repositorio en el panel de **Cloudflare Pages**
+2. Comando de build: `pnpm run build`
+3. Directorio de salida: `dist`
+4. Cloudflare desplegará automáticamente con cada `push`
+
+### Desde CLI (manual)
+
+```bash
+pnpm deploy
+```
+
+Requiere tener [Wrangler](https://developers.cloudflare.com/workers/wrangler/) configurado con una sesión activa de Cloudflare.
+
+---
+
+Desarrollado por [Álex Algarate](https://github.com/AlexAlgarate).
