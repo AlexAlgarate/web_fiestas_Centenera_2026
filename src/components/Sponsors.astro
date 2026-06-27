@@ -37,7 +37,9 @@ const images = import.meta.glob<{ default: { src: string } }>(
           const image = images[imagePath];
 
           if (!image) {
-            console.warn(`Image not found: ${sponsor.image}`);
+            if (import.meta.env.DEV) {
+              console.warn(`Image not found: ${sponsor.image}`);
+            }
             return null;
           }
 
@@ -65,7 +67,6 @@ const images = import.meta.glob<{ default: { src: string } }>(
                 src={image?.default.src}
                 alt={sponsor.name}
                 loading="lazy"
-                fetchpriority={index === 0 ? 'high' : 'auto'}
                 decoding="async"
                 class="h-full w-full object-contain p-4 transition-transform duration-300 ease-in-out group-hover:scale-105"
               />
