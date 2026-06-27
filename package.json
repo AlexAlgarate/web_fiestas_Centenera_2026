@@ -11,6 +11,7 @@
     "build": "astro build",
     "preview": "pnpm run build && wrangler dev",
     "astro": "astro",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "format": "prettier --write src/",
