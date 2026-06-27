@@ -199,6 +199,42 @@
       "name": "Desbrozados Martínez",
       "image": "desbroces-dani.jpg",
       "link": "https://www.instagram.com/desbrozados_martinez/"
+    },
+    {
+      "id": 34,
+      "name": "Disco Móvil",
+      "image": "disco-movil.jpg",
+      "link": "https://www.guadasonido.com/"
+    },
+    {
+      "id": 35,
+      "name": "NG Seguros",
+      "image": "ng-seguros.jpg",
+      "link": "https://www.grupogalilea.com/"
+    },
+    {
+      "id": 36,
+      "name": "Isvet Veterinario",
+      "image": "isvet-veterinario.jpg",
+      "link": "https://www.isvet.es/"
+    },
+    {
+      "id": 37,
+      "name": "Sedano",
+      "image": "sedano.jpg",
+      "link": "https://alquilerdemaquinariasedano.com/es/"
+    },
+    {
+      "id": 38,
+      "name": "Restaurante Dávalos",
+      "image": "restaurante-davalos.jpg",
+      "link": "http://www.restaurantedavalos.es/inicio"
+    },
+    {
+      "id": 39,
+      "name": "Style Reform",
+      "image": "style-reform.jpg",
+      "link": "https://www.stylereform.es/"
     }
   ]
 }
