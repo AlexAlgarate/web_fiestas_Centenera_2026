@@ -4,14 +4,39 @@ import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="icon" href="/favicon-32x32.png" />
     <link rel="icon" href="/apple-touch-icon.png" />
+    <link
+      rel="preload"
+      href="/fonts/Bridge-Regular.e7ea9f05ba63bbd48f7563f34.ebe8e926d1194c0e642324237a53b446.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/pocheon.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Horarios de las Fiestas de Centenera 2026. Consulta todos los eventos, colaboradores y cuentas de las fiestas."
+    />
+    <meta property="og:title" content="Fiestas Centenera 2026" />
+    <meta
+      property="og:description"
+      content="Horarios, colaboradores y cuentas de las Fiestas de Centenera 2026."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>Fiestas Centenera 2026</title>
   </head>
   <body>
