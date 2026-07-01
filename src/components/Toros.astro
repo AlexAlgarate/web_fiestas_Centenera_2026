@@ -1,0 +1,68 @@
+---
+import toroMarron from '../assets/toros/toro_marron.jpeg';
+import toroNegro from '../assets/toros/toro_negro.jpeg';
+
+interface Toro {
+  src: string;
+  name: string;
+  number: string;
+  iron: string;
+  ranching: string;
+  numeral: string;
+}
+
+const toros: Toro[] = [
+  {
+    src: toroMarron.src,
+    name: 'Corteza',
+    iron: 'Hermanos Gómez',
+    number: '3',
+    ranching: 'Hnos. Madero',
+    numeral: '123',
+  },
+  {
+    src: toroNegro.src,
+    name: 'Carbón',
+    iron: 'Hermanos Moratilla',
+    numeral: '123',
+    number: '7',
+    ranching: 'Hnos. Madero',
+  },
+];
+---
+
+<section
+  id="toros"
+  class="w-full bg-linear-to-br from-white/95 to-[#f0f0f5]/95 px-4 py-8 max-sm:px-3 max-sm:py-5"
+  aria-label="Toros"
+>
+  <div
+    class="mx-auto flex max-w-225 flex-wrap justify-center gap-6 max-sm:gap-4"
+  >
+    {
+      toros.map((toro) => (
+        <article
+          class="flex w-full max-w-sm flex-col overflow-hidden rounded-2xl border border-border
+          bg-white shadow-[0_2px_20px_rgba(0,0,0,0.1)] transition-all duration-200 ease-in-out
+          hover:-translate-y-0.5 sm:w-72 md:w-80"
+        >
+          <img
+            src={toro.src}
+            alt={toro.name}
+            class="aspect-4/3 block w-full object-cover"
+            loading="lazy"
+          />
+          <div class="flex flex-col gap-1.5 p-4 text-center max-sm:p-3 max-[480px]:p-2.5">
+            <h3 class="m-0 text-base font-bold capitalize text-text">
+              {toro.name}
+            </h3>
+            <span class="text-sm text-muted">Ganadería: {toro.ranching}</span>
+            <span class="text-sm text-muted">Hierro: {toro.iron}</span>
+            <span class="text-sm text-muted">Número: {toro.number}</span>
+            <span class="text-sm text-muted">Guarismo: {toro.numeral}</span>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
