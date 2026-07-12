@@ -1,237 +1,196 @@
 {
   "sponsors": [
     {
-      "id": 1,
       "name": "Desguaces Blanco",
       "image": "desguaces-blanco.jpg",
       "link": "https://www.desguacesblanco.es/"
     },
     {
-      "id": 2,
-      "name": "Nos Vamos de Encierro",
-      "image": "nos-vamos-de-encierro.jpg",
-      "link": "https://play.google.com/store/apps/details?id=saul.agendatoros&hl=es_419&pli=1"
-    },
-    {
-      "id": 3,
       "name": "Gear Cold",
       "image": "gear-cold.png",
       "link": ""
     },
-
     {
-      "id": 4,
-      "name": "Talleres Peñalver",
-      "image": "talleres-penalver.jpg",
-      "link": "https://tallerescga.com/taller/talleres-penalver"
-    },
-    {
-      "id": 5,
-      "name": "Asociación Taurina Centenera",
-      "image": "asociacion-taurina-centenera.jpg",
-      "link": ""
-    },
-    {
-      "id": 6,
-      "name": "Frutas Bucar",
-      "image": "frutas-bucar.jpg",
-      "link": "https://www.frutasbucar.com/"
-    },
-    {
-      "id": 7,
-      "name": "Talleres Autofix",
-      "image": "autofix.jpg",
-      "link": "https://autofix.es/"
-    },
-    {
-      "id": 8,
-      "name": "Rasauto",
-      "image": "rasauto.jpg",
-      "link": "http://www.rasauto-bcs.es/"
-    },
-    {
-      "id": 9,
-      "name": "Motos Domarco",
-      "image": "domarco.jpg",
-      "link": "https://motosdomarco.com/"
-    },
-    {
-      "id": 10,
-      "name": "Ganadería El Uno",
-      "image": "ganaderia-el-uno.jpg",
-      "link": "https://www.ganaderiaeluno.com/"
-    },
-    {
-      "id": 11,
-      "name": "Área 103",
-      "image": "area-103.jpg",
-      "link": "https://area103.es/"
-    },
-    {
-      "id": 12,
-      "name": "Armería Mirabueno",
-      "image": "armeria-mirabueno.jpg",
-      "link": "https://armeriamirabueno.com/"
-    },
-    {
-      "id": 13,
-      "name": "Iberauto Motor",
-      "image": "iberauto-motor.jpg",
-      "link": "https://www.iberautomotor.com/"
-    },
-
-    {
-      "id": 14,
-      "name": "Ramos Bus",
-      "image": "ramos-bus.jpg",
-      "link": "https://www.ramosbus.com/"
-    },
-    {
-      "id": 15,
-      "name": "Leader",
-      "image": "leader.jpg",
-      "link": "https://www.leaderespectaculos.com/"
-    },
-    {
-      "id": 16,
       "name": "Piscinas Guadapool",
       "image": "guadapool.jpg",
       "link": "https://guadapool.com/"
     },
     {
-      "id": 17,
-      "name": "Org. Taurinas Álvaro",
-      "image": "org-taurinas-alvaro.jpg",
-      "link": ""
-    },
-    {
-      "id": 18,
-      "name": "Los Balandros",
-      "image": "los-balandros.jpg",
-      "link": "https://losbalandros.es/"
-    },
-    {
-      "id": 19,
-      "name": "El Jardín de las Hadas",
-      "image": "el-jardin-de-las-hadas.jpg",
-      "link": "https://www.instagram.com/eljardindelashadas_gu/?hl=es"
-    },
-    {
-      "id": 20,
-      "name": "Reparaciones K & F",
-      "image": "taller-kyf.jpg",
-      "link": "https://kfreparaciones.eu/"
-    },
-    {
-      "id": 21,
-      "name": "Matteo Taller",
-      "image": "matteo-taller.jpg",
-      "link": ""
-    },
-    {
-      "id": 22,
-      "name": "Grupo Lino",
-      "image": "grupo-lino.jpg",
-      "link": "https://grupolino.com/"
-    },
-    {
-      "id": 23,
-      "name": "Bar Lluís",
-      "image": "bar-lluis.jpg",
-      "link": "https://www.instagram.com/barlluis_binissalem"
-    },
-    {
-      "id": 24,
       "name": "Óscar Auto",
       "image": "oscar-auto.jpg",
       "link": "http://www.oscarauto.es/"
     },
     {
-      "id": 25,
-      "name": "La Posada de Consuelito",
-      "image": "la-posada-de-consuelito.jpg",
-      "link": "https://www.laposadadeconsuelito.es/"
+      "name": "Bar Lluís",
+      "image": "bar-lluis.jpg",
+      "link": "https://www.instagram.com/barlluis_binissalem"
     },
     {
-      "id": 26,
-      "name": "Meccanica",
-      "image": "meccanica.jpg",
-      "link": ""
-    },
-    {
-      "id": 27,
       "name": "Bar Centenera",
       "image": "bar-centenera.jpg",
       "link": ""
     },
     {
-      "id": 28,
       "name": "Bar Beatriz",
       "image": "bar-beatriz.jpg",
       "link": "https://www.facebook.com/p/Bar-restaurante-beatriz-100064208104581/"
     },
     {
-      "id": 29,
       "name": "Gonzalo",
       "image": "gonzalo.jpg",
       "link": "https://www.linkedin.com/in/gdelucasmoratilla/"
     },
     {
-      "id": 30,
-      "name": "Gumarfe",
-      "image": "gumarfe.jpg",
-      "link": "https://gumarfe.com/"
-    },
-    {
-      "id": 31,
       "name": "Quesería El Recuerdo",
       "image": "queseria-el-recuerdo.jpg",
       "link": "https://queseriaelrecuerdo.es/"
     },
     {
-      "id": 32,
+      "name": "Nos Vamos de Encierro",
+      "image": "nos-vamos-de-encierro.jpg",
+      "link": "https://play.google.com/store/apps/details?id=saul.agendatoros&hl=es_419&pli=1"
+    },
+    {
+      "name": "Talleres Peñalver",
+      "image": "talleres-penalver.jpg",
+      "link": "https://tallerescga.com/taller/talleres-penalver"
+    },
+    {
+      "name": "Asociación Taurina Centenera",
+      "image": "asociacion-taurina-centenera.jpg",
+      "link": ""
+    },
+    {
+      "name": "Frutas Bucar",
+      "image": "frutas-bucar.jpg",
+      "link": "https://www.frutasbucar.com/"
+    },
+    {
+      "name": "Talleres Autofix",
+      "image": "autofix.jpg",
+      "link": "https://autofix.es/"
+    },
+    {
+      "name": "Rasauto",
+      "image": "rasauto.jpg",
+      "link": "http://www.rasauto-bcs.es/"
+    },
+    {
+      "name": "Motos Domarco",
+      "image": "domarco.jpg",
+      "link": "https://motosdomarco.com/"
+    },
+    {
+      "name": "Ganadería El Uno",
+      "image": "ganaderia-el-uno.jpg",
+      "link": "https://www.ganaderiaeluno.com/"
+    },
+    {
+      "name": "Área 103",
+      "image": "area-103.jpg",
+      "link": "https://area103.es/"
+    },
+    {
+      "name": "Armería Mirabueno",
+      "image": "armeria-mirabueno.jpg",
+      "link": "https://armeriamirabueno.com/"
+    },
+    {
+      "name": "Iberauto Motor",
+      "image": "iberauto-motor.jpg",
+      "link": "https://www.iberautomotor.com/"
+    },
+    {
+      "name": "Ramos Bus",
+      "image": "ramos-bus.jpg",
+      "link": "https://www.ramosbus.com/"
+    },
+    {
+      "name": "Leader",
+      "image": "leader.jpg",
+      "link": "https://www.leaderespectaculos.com/"
+    },
+    {
+      "name": "Org. Taurinas Álvaro",
+      "image": "org-taurinas-alvaro.jpg",
+      "link": ""
+    },
+    {
+      "name": "Los Balandros",
+      "image": "los-balandros.jpg",
+      "link": "https://losbalandros.es/"
+    },
+    {
+      "name": "El Jardín de las Hadas",
+      "image": "el-jardin-de-las-hadas.jpg",
+      "link": "https://www.instagram.com/eljardindelashadas_gu/?hl=es"
+    },
+    {
+      "name": "Reparaciones K & F",
+      "image": "taller-kyf.jpg",
+      "link": "https://kfreparaciones.eu/"
+    },
+    {
+      "name": "Matteo Taller",
+      "image": "matteo-taller.jpg",
+      "link": ""
+    },
+    {
+      "name": "Grupo Lino",
+      "image": "grupo-lino.jpg",
+      "link": "https://grupolino.com/"
+    },
+    {
+      "name": "La Posada de Consuelito",
+      "image": "la-posada-de-consuelito.jpg",
+      "link": "https://www.laposadadeconsuelito.es/"
+    },
+    {
+      "name": "Meccanica",
+      "image": "meccanica.jpg",
+      "link": ""
+    },
+    {
+      "name": "Gumarfe",
+      "image": "gumarfe.jpg",
+      "link": "https://gumarfe.com/"
+    },
+    {
       "name": "Reformas Heanvi",
       "image": "reformas-heanvi.jpg",
       "link": "https://reformasheanvi.es/"
     },
     {
-      "id": 33,
       "name": "Desbrozados Martínez",
       "image": "desbroces-dani.jpg",
       "link": "https://www.instagram.com/desbrozados_martinez/"
     },
     {
-      "id": 34,
       "name": "Disco Móvil",
       "image": "disco-movil.jpg",
       "link": "https://www.guadasonido.com/"
     },
     {
-      "id": 35,
       "name": "NG Seguros",
       "image": "ng-seguros.jpg",
       "link": "https://www.grupogalilea.com/"
     },
     {
-      "id": 36,
       "name": "Isvet Veterinario",
       "image": "isvet-veterinario.jpg",
       "link": "https://www.isvet.es/"
     },
     {
-      "id": 37,
       "name": "Sedano",
       "image": "sedano.jpg",
       "link": "https://alquilerdemaquinariasedano.com/es/"
     },
     {
-      "id": 38,
       "name": "Restaurante Dávalos",
       "image": "restaurante-davalos.jpg",
       "link": "http://www.restaurantedavalos.es/inicio"
     },
     {
-      "id": 39,
       "name": "Style Reform",
       "image": "style-reform.jpg",
       "link": "https://www.stylereform.es/"
