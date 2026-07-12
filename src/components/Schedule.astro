@@ -296,6 +296,7 @@ const { days } = scheduleData as { days: Day[] };
     cursor: grab;
     user-select: none;
     -webkit-user-select: none;
+    padding-block: 16px;
     -webkit-mask-image: linear-gradient(
       to right,
       transparent,
@@ -318,12 +319,15 @@ const { days } = scheduleData as { days: Day[] };
 
   .carousel-track {
     display: flex;
+    align-items: stretch;
     gap: var(--card-gap);
   }
 
   .day-schedule-wrapper {
     flex: 0 0 calc(100% - 2 * var(--peek));
     min-width: 0;
+    display: flex;
+    align-items: stretch;
     border-radius: var(--radius-card);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     transform: scale(0.95);
@@ -345,6 +349,7 @@ const { days } = scheduleData as { days: Day[] };
   .day-schedule {
     width: 100%;
     height: 100%;
+    flex: 1;
     background: var(--clr-white);
     border-radius: var(--radius-card);
     overflow: hidden;
@@ -616,6 +621,9 @@ const { days } = scheduleData as { days: Day[] };
     const section = document.getElementById('schedule') as HTMLElement;
     const viewport = document.getElementById('carouselViewport') as HTMLElement;
     const track = document.getElementById('carouselTrack') as HTMLElement;
+    const wrappers = document.querySelectorAll<HTMLElement>(
+      '.day-schedule-wrapper',
+    );
     const cards = document.querySelectorAll<HTMLElement>('.day-schedule');
     const dots = document.querySelectorAll<HTMLButtonElement>('.indicator');
     const prevBtn = document.getElementById('prevBtn') as HTMLButtonElement;
@@ -662,6 +670,7 @@ const { days } = scheduleData as { days: Day[] };
     function go(index: number): void {
       current = Math.max(0, Math.min(index, total - 1));
 
+      wrappers.forEach((w, i) => w.classList.toggle('active', i === current));
       cards.forEach((c, i) => c.classList.toggle('active', i === current));
       dots.forEach((d, i) => {
         d.classList.toggle('active', i === current);
@@ -674,6 +683,7 @@ const { days } = scheduleData as { days: Day[] };
 
       move(baseX(current));
     }
+
     dayCards.forEach((c, i) => c.addEventListener('click', () => go(i)));
 
     move(baseX(0), false);
