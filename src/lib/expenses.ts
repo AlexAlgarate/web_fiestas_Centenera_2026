@@ -1,7 +1,7 @@
 const COLUMN_NAME = 0;
 const COLUMN_TOTAL = 1;
 
-export interface ExpenseCategory {
+interface ExpenseCategory {
   name: string;
   total: number;
 }
