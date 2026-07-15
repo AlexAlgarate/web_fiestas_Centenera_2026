@@ -77,3 +77,23 @@ const images = import.meta.glob<{ default: { src: string } }>(
     </div>
   </div>
 </section>
+
+<style>
+  .sponsor-card {
+    animation: fadeUp linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px) scale(0.8);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+</style>
