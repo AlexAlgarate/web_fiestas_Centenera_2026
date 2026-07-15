@@ -329,7 +329,9 @@ const { days } = scheduleData as { days: Day[] };
     display: flex;
     align-items: stretch;
     border-radius: var(--radius-card);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    box-shadow:
+      10 10px 20px rgba(150, 32, 0, 0.2),
+      -10 -10px 20px rgba(255, 255, 255, 0.9);
     transform: scale(0.95);
     opacity: 0.6;
     transition:
@@ -342,8 +344,8 @@ const { days } = scheduleData as { days: Day[] };
     transform: scale(1);
     opacity: 1;
     box-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.08),
-      0 8px 32px rgba(0, 0, 0, 0.14);
+      10 10px 20px rgba(150, 32, 0, 0.1),
+      -10 -10px 20px rgba(255, 255, 255, 0.9);
   }
 
   .day-schedule {
@@ -431,6 +433,7 @@ const { days } = scheduleData as { days: Day[] };
     overflow-wrap: break-word;
     word-break: break-word;
     hyphens: auto;
+    text-wrap: balance;
   }
   .event-location {
     font-size: 0.8125rem;
